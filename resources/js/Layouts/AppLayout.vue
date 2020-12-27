@@ -18,6 +18,16 @@
                                 Dashboard
                             </jet-nav-link>
                         </div>
+                        <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                            <jet-nav-link href="/courses" :active="$page.currentRouteName === 'courses.index'">
+                                Les Formations
+                            </jet-nav-link>
+                        </div>
+                         <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                            <jet-nav-link :href="route('courses.index')" :active="route().current('courses.index')">
+                                Liste Courses
+                            </jet-nav-link>
+                        </div>
                     </div>
 
                     <!-- Settings Dropdown -->

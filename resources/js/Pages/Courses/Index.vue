@@ -7,6 +7,7 @@
       <div class="py-2" v-for="(course, key) in courseList" :key="key">
         <div class="px-2 bg-white rounded shadow p-4 m-4">
             <div class=" text-sm text-gray-400" > Mise en ligne par {{ course.user.name }}</div>
+            <p class="text-gray-500 text-sm " > {{ course.participants}} paticipant<span v-if="parseInt(course.participants)>1" >s</span> </p>
           <div class="flex justify-between items-center">
             <div class="text-4xl">
               {{ course.title }}

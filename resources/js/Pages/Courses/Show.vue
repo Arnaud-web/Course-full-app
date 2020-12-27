@@ -23,14 +23,18 @@
         </div>
         <div class="mtma-10">
           <ul v-for="(episode, index) in course.episodes" :key="episode.id">
-            <li class="mt-2">
-              Episode N* {{ index + 1 }} - {{ episode.title }}
-              <button
-                class="text-gray-500 focus:text-green-500"
-                @click="switchEpisode(index)"
-              >
-                Voir l'épisode
-              </button>
+            <li class="mt-2 flex justify-between items-center">
+              <div>
+                Episode N* {{ index + 1 }} - {{ episode.title }}
+                <button
+                  class="text-gray-500 focus:text-green-500"
+                  @click="switchEpisode(index)"
+                >
+                  Voir l'épisode
+                </button>
+              </div>
+
+              <ProgressButton :episodeId ="episode.id" :watchedEpisodes="watched" />
             </li>
           </ul>
         </div>
@@ -41,9 +45,10 @@
 
 <script>
 import AppLayout from "@/Layouts/AppLayout";
+import ProgressButton from "./ProgressButton.vue";
 
 export default {
-  props: ["course"],
+  props: ["course","watched"],
   data() {
     return {
       currentKey: 0,
@@ -54,14 +59,15 @@ export default {
       this.currentKey = index;
 
       window.scrollTo({
-        top:0,
-        left:0,
-        behavior:'smooth'
-      })
+        top: 0,
+        left: 0,
+        behavior: "smooth",
+      });
     },
   },
   components: {
     AppLayout,
+    ProgressButton,
   },
   mounted() {
     console.log(this.course);

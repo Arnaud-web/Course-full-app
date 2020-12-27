@@ -28,4 +28,5 @@ Route::group(['auth:sanctum', 'verified'],function(){
 
     Route::get('/courses', 'App\Http\Controllers\CourseController@index')->name('courses.index');
     Route::get('/course/{id}', 'App\Http\Controllers\CourseController@show')->name('course.episode');    
+    Route::post('/toggleProgress', 'App\Http\Controllers\CourseController@toggleProgress')->name('course.toggle');    
 });

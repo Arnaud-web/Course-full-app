@@ -17,7 +17,7 @@
             {{ course.description }}
           </div>
           <a
-          :href="route('courses.index')" :active="route().current('courses.index')"
+          :href="'course/'+course.id"
             class="bg-indigo-400 text-sm text-white px-2 py-2 mt-3 rounded hover:bg-indigo-700 inline-block"
           >
             Voir la formation

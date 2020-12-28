@@ -21,6 +21,9 @@
         <div class="text-sm text-gray-500">
           {{ course.episodes[currentKey].description }}
         </div>
+        <div class="py-6" >
+        <progress-bar :watchedEpisodes = "watched" :episodes="course.episodes" />
+        </div>
         <div class="mtma-10">
           <ul v-for="(episode, index) in course.episodes" :key="episode.id">
             <li class="mt-2 flex justify-between items-center">
@@ -34,7 +37,10 @@
                 </button>
               </div>
 
-              <ProgressButton :episodeId ="episode.id" :watchedEpisodes="watched" />
+              <ProgressButton
+                :episodeId="episode.id"
+                :watchedEpisodes="watched"
+              />
             </li>
           </ul>
         </div>
@@ -46,9 +52,10 @@
 <script>
 import AppLayout from "@/Layouts/AppLayout";
 import ProgressButton from "./ProgressButton.vue";
+import ProgressBar from "./ProgressBar.vue";
 
 export default {
-  props: ["course","watched"],
+  props: ["course", "watched"],
   data() {
     return {
       currentKey: 0,
@@ -68,6 +75,7 @@ export default {
   components: {
     AppLayout,
     ProgressButton,
+    ProgressBar,
   },
   mounted() {
     console.log(this.course);

@@ -9,8 +9,9 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class Episode extends Model
 {
     use HasFactory;
-
-    public function course(){
+    protected $fillable = ['title', 'description', 'video_url', 'course_id'];
+    public function course()
+    {
         return $this->belongsTo(Course::class);
     }
 }

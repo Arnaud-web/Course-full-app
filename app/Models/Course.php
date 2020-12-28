@@ -4,18 +4,28 @@ namespace App\Models;
 
 use App\Models\User;
 use App\Models\Episode;
+
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Course extends Model
 {
     use HasFactory;
+    protected $fillable = ['title', 'description'];
+    protected static function booted()
+    {
+        static::creating(function ($courses) {
+            $courses->user_id = auth()->id();
+        });
+    }
 
-    public function episodes(){
+    public function episodes()
+    {
         return $this->hasMany(Episode::class);
     }
 
-    public function user(){
+    public function user()
+    {
         return $this->belongsTo(User::class);
     }
 }

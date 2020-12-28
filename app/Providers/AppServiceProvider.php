@@ -2,7 +2,10 @@
 
 namespace App\Providers;
 
+use Inertia\Inertia;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Support\ServiceProvider;
+// use Symfony\Component\HttpFoundation\Session\Session;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -24,5 +27,15 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         //
+        Inertia::share('flash', function () {
+            return [
+                'success' => Session::get('success'),
+            ];
+        });
+
+        Inertia::share(['errors' => function () {
+            return  Session::get('errors') ? Session::get('errors')->getBag('default')->getMessages()
+                : (object) [];
+        },]);
     }
 }

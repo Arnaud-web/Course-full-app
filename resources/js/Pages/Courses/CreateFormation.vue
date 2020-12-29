@@ -23,12 +23,14 @@
               </div>
             </div>
           </div>
-          <div class="pt-10 mt-5 md:mt-0 md:col-span-2">
+          <div class="pt-10 mt-5 md:mt-0 md:col-span-2 mr-6" >
             <form @submit.prevent="submit">
               <div class="shadow sm:rounded-md sm:overflow-hidden">
-                <div class="px-4 py-5 bg-white space-y-6 sm:p-6">
-                  <div class="grid grid-cols-3 gap-6">
-                    <div class="col-span-3 sm:col-span-2">
+                <div class="px-4 py-5 bg-white space-y-6 sm:p-2">
+                  <div>
+                  <div class="bg-gray-200 p-2">
+                    <div>
+                    <div class=" ">
                       <label
                         for="company_website"
                         class="block text-sm font-medium text-gray-700"
@@ -52,7 +54,7 @@
                       </div>
                     </div>
                   </div>
-
+                  <div>
                   <div>
                     <label
                       for="about"
@@ -66,20 +68,27 @@
                         name="about"
                         rows="3"
                         class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border-gray-300 rounded-md"
-                        placeholder="descr"
+                        placeholder="desc"
                         v-model="form.description"
                       ></textarea>
                     </div>
                     <p class="mt-2 text-sm text-gray-500">
                       description de la formation
                     </p>
+                    </div>
+                    </div>
+                    </div>
+
+
+                    <div class = "bg-gray-300 m-2 p-4" >
                     <div class="mb-5">
-                      <h2 class="text-2xl">Episodes de la formation</h2>
-                      <div
+                      <h2 class="text-2xl ">Episodes de la formation</h2>
+                      <div class = "p-2 m-1 bg-gray-200 border-4 border-opacity-25 border-green-500"
                         v-for="(episode, index) in form.episodes"
                         :key="index"
                       >
                         <div class="">
+                          <h2> Episode {{index+1}} </h2>
                           <div class="">
                             <label
                               :for="'title-' + index"
@@ -149,8 +158,10 @@
                             </div>
                           </div>
                         </div>
+                          <!-- <div class=" bloc bg-green-500 w-full h-0.5 text-white rounded my-2" ></div> -->
                       </div>
                     </div>
+                  </div>
                   </div>
                   <button
                     class="bg-green-600 rounded py-2 px-4 text-white"

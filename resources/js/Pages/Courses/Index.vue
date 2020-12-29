@@ -2,10 +2,15 @@
   <div>
     <AppLayout>
       <template slot="header">
-        <p>Listes des formation</p>
+        <p>Listes des formation </p>
       </template>
-      <div class="py-2" v-for="(course, key) in courseList" :key="key">
-        <div class="px-2 bg-white rounded shadow p-4 m-4">
+      <div  class = "text-center p-3" >
+      <Page :data = "courseList"/>
+      </div>
+        <div class="flex items-center justify-center ">
+      <div class = " bg-gray-200  md:w-4/6 " >
+      <div class="py-1 " v-for="(course, key) in courseList.data" :key="key">
+        <div class="px-2 bg-white rounded shadow p-4 m-2" >
           <div class="text-sm text-gray-400">
             Mise en ligne par {{ course.user.name }}
           </div>
@@ -45,6 +50,9 @@
           </div>
         </div>
       </div>
+      </div>
+      </div>
+      <Page :data = "courseList"/>
       <h1>Bonjour Courses</h1>
     </AppLayout>
   </div>
@@ -52,7 +60,7 @@
 
 <script>
 import AppLayout from "@/Layouts/AppLayout";
-
+import Page from './Page'
 export default {
   props: ["courses", "userId"],
   data() {
@@ -62,6 +70,7 @@ export default {
   },
   components: {
     AppLayout,
+    Page
   },
   mounted() {
     console.log(this.courseList);

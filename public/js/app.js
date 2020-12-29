@@ -4899,6 +4899,120 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -4919,15 +5033,15 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     switchToTeam: function switchToTeam(team) {
-      this.$inertia.put(route('current-team.update'), {
-        'team_id': team.id
+      this.$inertia.put(route("current-team.update"), {
+        team_id: team.id
       }, {
         preserveState: false
       });
     },
     logout: function logout() {
-      axios.post(route('logout').url()).then(function (response) {
-        window.location = '/';
+      axios.post(route("logout").url()).then(function (response) {
+        window.location = "/";
       });
     }
   }
@@ -5376,6 +5490,96 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
@@ -5396,7 +5600,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     submit: function submit() {
-      this.$inertia.post('/courses/create', this.form);
+      this.$inertia.post("/courses/create", this.form);
     },
     add: function add() {
       this.form.episodes.push({
@@ -5529,12 +5733,91 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
     AppLayout: _Layouts_AppLayout__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
-  props: ['course'],
+  props: ["course"],
   data: function data() {
     return {
       courseData: this.course
@@ -5542,7 +5825,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     submit: function submit() {
-      this.$inertia.patch('/courses/' + this.courseData.id, this.courseData);
+      this.$inertia.patch("/courses/" + this.courseData.id, this.courseData);
     },
     add: function add() {
       this.courseData.episodes.push({
@@ -5569,6 +5852,26 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Layouts_AppLayout__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/Layouts/AppLayout */ "./resources/js/Layouts/AppLayout.vue");
+/* harmony import */ var _Page__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Page */ "./resources/js/Pages/Courses/Page.vue");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -5611,6 +5914,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ["courses", "userId"],
   data: function data() {
@@ -5619,11 +5923,46 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   components: {
-    AppLayout: _Layouts_AppLayout__WEBPACK_IMPORTED_MODULE_0__["default"]
+    AppLayout: _Layouts_AppLayout__WEBPACK_IMPORTED_MODULE_0__["default"],
+    Page: _Page__WEBPACK_IMPORTED_MODULE_1__["default"]
   },
   mounted: function mounted() {
     console.log(this.courseList);
   }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Pages/Courses/Page.vue?vue&type=script&lang=js&":
+/*!******************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Pages/Courses/Page.vue?vue&type=script&lang=js& ***!
+  \******************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  props: ["data"],
+  data: function data() {
+    return {
+      courseList: this.data
+    };
+  },
+  mounted: function mounted() {}
 });
 
 /***/ }),
@@ -27065,11 +27404,7 @@ var render = function() {
                         active: _vm.route().current("dashboard")
                       }
                     },
-                    [
-                      _vm._v(
-                        "\n                            Dashboard\n                        "
-                      )
-                    ]
+                    [_vm._v("\n              Dashboard\n            ")]
                   )
                 ],
                 1
@@ -27087,11 +27422,7 @@ var render = function() {
                         active: _vm.$page.currentRouteName === "courses.index"
                       }
                     },
-                    [
-                      _vm._v(
-                        "\n                            Les Formations\n                        "
-                      )
-                    ]
+                    [_vm._v("\n              Les Formations\n            ")]
                   )
                 ],
                 1
@@ -27109,11 +27440,7 @@ var render = function() {
                         active: _vm.route().current("courses.create")
                       }
                     },
-                    [
-                      _vm._v(
-                        "\n                            Crée un formation\n                        "
-                      )
-                    ]
+                    [_vm._v("\n              Crée un formation\n            ")]
                   )
                 ],
                 1
@@ -27205,7 +27532,7 @@ var render = function() {
                                 },
                                 [
                                   _vm._v(
-                                    "\n                                    Manage Account\n                                "
+                                    "\n                  Manage Account\n                "
                                   )
                                 ]
                               ),
@@ -27215,7 +27542,7 @@ var render = function() {
                                 { attrs: { href: _vm.route("profile.show") } },
                                 [
                                   _vm._v(
-                                    "\n                                    Profile\n                                "
+                                    "\n                  Profile\n                "
                                   )
                                 ]
                               ),
@@ -27230,7 +27557,7 @@ var render = function() {
                                     },
                                     [
                                       _vm._v(
-                                        "\n                                    API Tokens\n                                "
+                                        "\n                  API Tokens\n                "
                                       )
                                     ]
                                   )
@@ -27250,7 +27577,7 @@ var render = function() {
                                       },
                                       [
                                         _vm._v(
-                                          "\n                                        Manage Team\n                                    "
+                                          "\n                    Manage Team\n                  "
                                         )
                                       ]
                                     ),
@@ -27267,7 +27594,7 @@ var render = function() {
                                       },
                                       [
                                         _vm._v(
-                                          "\n                                        Team Settings\n                                    "
+                                          "\n                    Team Settings\n                  "
                                         )
                                       ]
                                     ),
@@ -27282,7 +27609,7 @@ var render = function() {
                                           },
                                           [
                                             _vm._v(
-                                              "\n                                        Create New Team\n                                    "
+                                              "\n                    Create New Team\n                  "
                                             )
                                           ]
                                         )
@@ -27300,7 +27627,7 @@ var render = function() {
                                       },
                                       [
                                         _vm._v(
-                                          "\n                                        Switch Teams\n                                    "
+                                          "\n                    Switch Teams\n                  "
                                         )
                                       ]
                                     ),
@@ -27398,11 +27725,7 @@ var render = function() {
                                   _c(
                                     "jet-dropdown-link",
                                     { attrs: { as: "button" } },
-                                    [
-                                      _vm._v(
-                                        "\n                                        Logout\n                                    "
-                                      )
-                                    ]
+                                    [_vm._v(" Logout ")]
                                   )
                                 ],
                                 1
@@ -27498,7 +27821,7 @@ var render = function() {
                       active: _vm.route().current("dashboard")
                     }
                   },
-                  [_vm._v("\n                    Dashboard\n                ")]
+                  [_vm._v("\n          Dashboard\n        ")]
                 )
               ],
               1
@@ -27520,13 +27843,25 @@ var render = function() {
                   _c(
                     "div",
                     { staticClass: "font-medium text-base text-gray-800" },
-                    [_vm._v(_vm._s(_vm.$page.user.name))]
+                    [
+                      _vm._v(
+                        "\n              " +
+                          _vm._s(_vm.$page.user.name) +
+                          "\n            "
+                      )
+                    ]
                   ),
                   _vm._v(" "),
                   _c(
                     "div",
                     { staticClass: "font-medium text-sm text-gray-500" },
-                    [_vm._v(_vm._s(_vm.$page.user.email))]
+                    [
+                      _vm._v(
+                        "\n              " +
+                          _vm._s(_vm.$page.user.email) +
+                          "\n            "
+                      )
+                    ]
                   )
                 ])
               ]),
@@ -27543,11 +27878,7 @@ var render = function() {
                         active: _vm.route().current("profile.show")
                       }
                     },
-                    [
-                      _vm._v(
-                        "\n                        Profile\n                    "
-                      )
-                    ]
+                    [_vm._v("\n            Profile\n          ")]
                   ),
                   _vm._v(" "),
                   _vm.$page.jetstream.hasApiFeatures
@@ -27559,11 +27890,7 @@ var render = function() {
                             active: _vm.route().current("api-tokens.index")
                           }
                         },
-                        [
-                          _vm._v(
-                            "\n                        API Tokens\n                    "
-                          )
-                        ]
+                        [_vm._v("\n            API Tokens\n          ")]
                       )
                     : _vm._e(),
                   _vm._v(" "),
@@ -27582,11 +27909,7 @@ var render = function() {
                       _c(
                         "jet-responsive-nav-link",
                         { attrs: { as: "button" } },
-                        [
-                          _vm._v(
-                            "\n                            Logout\n                        "
-                          )
-                        ]
+                        [_vm._v("\n              Logout\n            ")]
                       )
                     ],
                     1
@@ -27601,11 +27924,7 @@ var render = function() {
                           {
                             staticClass: "block px-4 py-2 text-xs text-gray-400"
                           },
-                          [
-                            _vm._v(
-                              "\n                            Manage Team\n                        "
-                            )
-                          ]
+                          [_vm._v("\n              Manage Team\n            ")]
                         ),
                         _vm._v(" "),
                         _c(
@@ -27621,7 +27940,7 @@ var render = function() {
                           },
                           [
                             _vm._v(
-                              "\n                            Team Settings\n                        "
+                              "\n              Team Settings\n            "
                             )
                           ]
                         ),
@@ -27636,7 +27955,7 @@ var render = function() {
                           },
                           [
                             _vm._v(
-                              "\n                            Create New Team\n                        "
+                              "\n              Create New Team\n            "
                             )
                           ]
                         ),
@@ -27648,11 +27967,7 @@ var render = function() {
                           {
                             staticClass: "block px-4 py-2 text-xs text-gray-400"
                           },
-                          [
-                            _vm._v(
-                              "\n                            Switch Teams\n                        "
-                            )
-                          ]
+                          [_vm._v("\n              Switch Teams\n            ")]
                         ),
                         _vm._v(" "),
                         _vm._l(_vm.$page.user.all_teams, function(team) {
@@ -28472,12 +28787,16 @@ var render = function() {
                     {
                       staticClass: "text-lg font-medium leading-6 text-gray-900"
                     },
-                    [_vm._v("Creation de la formation")]
+                    [
+                      _vm._v(
+                        "\n              Creation de la formation\n            "
+                      )
+                    ]
                   ),
                   _vm._v(" "),
                   _c("p", { staticClass: "mt-1 text-sm text-gray-600" }, [
                     _vm._v(
-                      "\n          This information will be displayed publicly so be careful what you share.\n        "
+                      "\n              This information will be displayed publicly so be careful what\n              you share.\n            "
                     )
                   ]),
                   _vm._v(" "),
@@ -28487,9 +28806,9 @@ var render = function() {
                         { staticClass: "bg-green-200 text-green-600 p-3" },
                         [
                           _vm._v(
-                            "\n          " +
+                            "\n              " +
                               _vm._s(_vm.$page.flash.success) +
-                              " \n        "
+                              "\n            "
                           )
                         ]
                       )
@@ -28497,90 +28816,144 @@ var render = function() {
                 ])
               ]),
               _vm._v(" "),
-              _c("div", { staticClass: " pt-10 mt-5 md:mt-0 md:col-span-2" }, [
-                _c(
-                  "form",
-                  {
-                    on: {
-                      submit: function($event) {
-                        $event.preventDefault()
-                        return _vm.submit($event)
+              _c(
+                "div",
+                { staticClass: "pt-10 mt-5 md:mt-0 md:col-span-2 mr-6" },
+                [
+                  _c(
+                    "form",
+                    {
+                      on: {
+                        submit: function($event) {
+                          $event.preventDefault()
+                          return _vm.submit($event)
+                        }
                       }
-                    }
-                  },
-                  [
-                    _c(
-                      "div",
-                      {
-                        staticClass: "shadow sm:rounded-md sm:overflow-hidden"
-                      },
-                      [
-                        _c(
-                          "div",
-                          {
-                            staticClass: "px-4 py-5 bg-white space-y-6 sm:p-6"
-                          },
-                          [
-                            _c(
-                              "div",
-                              { staticClass: "grid grid-cols-3 gap-6" },
-                              [
-                                _c(
-                                  "div",
-                                  { staticClass: "col-span-3 sm:col-span-2" },
-                                  [
-                                    _c(
-                                      "label",
-                                      {
-                                        staticClass:
-                                          "block text-sm font-medium text-gray-700",
-                                        attrs: { for: "company_website" }
-                                      },
-                                      [
-                                        _vm._v(
-                                          "\n                  Titre\n                "
-                                        )
-                                      ]
-                                    ),
-                                    _vm._v(" "),
-                                    _c(
-                                      "div",
-                                      {
-                                        staticClass:
-                                          "mt-1 flex rounded-md shadow-sm"
-                                      },
-                                      [
-                                        _c(
-                                          "span",
-                                          {
+                    },
+                    [
+                      _c(
+                        "div",
+                        {
+                          staticClass: "shadow sm:rounded-md sm:overflow-hidden"
+                        },
+                        [
+                          _c(
+                            "div",
+                            {
+                              staticClass: "px-4 py-5 bg-white space-y-6 sm:p-2"
+                            },
+                            [
+                              _c("div", [
+                                _c("div", { staticClass: "bg-gray-200 p-2" }, [
+                                  _c("div", [
+                                    _c("div", { staticClass: " " }, [
+                                      _c(
+                                        "label",
+                                        {
+                                          staticClass:
+                                            "block text-sm font-medium text-gray-700",
+                                          attrs: { for: "company_website" }
+                                        },
+                                        [
+                                          _vm._v(
+                                            "\n                      Titre\n                    "
+                                          )
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "div",
+                                        {
+                                          staticClass:
+                                            "mt-1 flex rounded-md shadow-sm"
+                                        },
+                                        [
+                                          _c(
+                                            "span",
+                                            {
+                                              staticClass:
+                                                "inline-flex items-center px-3 rounded-l-md border border-r-0 border-gray-300 bg-gray-50 text-gray-500 text-sm"
+                                            },
+                                            [
+                                              _vm._v(
+                                                "\n                        titre :\n                      "
+                                              )
+                                            ]
+                                          ),
+                                          _vm._v(" "),
+                                          _c("input", {
+                                            directives: [
+                                              {
+                                                name: "model",
+                                                rawName: "v-model",
+                                                value: _vm.form.title,
+                                                expression: "form.title"
+                                              }
+                                            ],
                                             staticClass:
-                                              "inline-flex items-center px-3 rounded-l-md border border-r-0 border-gray-300 bg-gray-50 text-gray-500 text-sm"
-                                          },
-                                          [
-                                            _vm._v(
-                                              "\n                   titre : \n                  "
-                                            )
-                                          ]
-                                        ),
-                                        _vm._v(" "),
-                                        _c("input", {
+                                              "focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-none rounded-r-md sm:text-sm border-gray-300",
+                                            attrs: {
+                                              type: "text",
+                                              name: "company_website",
+                                              id: "company_website",
+                                              placeholder: "title"
+                                            },
+                                            domProps: { value: _vm.form.title },
+                                            on: {
+                                              input: function($event) {
+                                                if ($event.target.composing) {
+                                                  return
+                                                }
+                                                _vm.$set(
+                                                  _vm.form,
+                                                  "title",
+                                                  $event.target.value
+                                                )
+                                              }
+                                            }
+                                          })
+                                        ]
+                                      )
+                                    ])
+                                  ]),
+                                  _vm._v(" "),
+                                  _c("div", [
+                                    _c("div", [
+                                      _c(
+                                        "label",
+                                        {
+                                          staticClass:
+                                            "block text-sm font-medium text-gray-700",
+                                          attrs: { for: "about" }
+                                        },
+                                        [
+                                          _vm._v(
+                                            "\n                    Description\n                  "
+                                          )
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c("div", { staticClass: "mt-1" }, [
+                                        _c("textarea", {
                                           directives: [
                                             {
                                               name: "model",
                                               rawName: "v-model",
-                                              value: _vm.form.title,
-                                              expression: "form.title"
+                                              value: _vm.form.description,
+                                              expression: "form.description"
                                             }
                                           ],
                                           staticClass:
-                                            "focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-none rounded-r-md sm:text-sm border-gray-300",
+                                            "shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border-gray-300 rounded-md",
                                           attrs: {
-                                            type: "text",
-                                            name: "company_website",
-                                            id: "company_website",
-                                            placeholder: "title"
+                                            id: "about",
+                                            name: "about",
+                                            rows: "3",
+                                            placeholder: "desc"
                                           },
-                                          domProps: { value: _vm.form.title },
+                                          domProps: {
+                                            value: _vm.form.description
+                                          },
                                           on: {
                                             input: function($event) {
                                               if ($event.target.composing) {
@@ -28588,405 +28961,428 @@ var render = function() {
                                               }
                                               _vm.$set(
                                                 _vm.form,
-                                                "title",
+                                                "description",
                                                 $event.target.value
                                               )
                                             }
                                           }
                                         })
-                                      ]
+                                      ]),
+                                      _vm._v(" "),
+                                      _c(
+                                        "p",
+                                        {
+                                          staticClass:
+                                            "mt-2 text-sm text-gray-500"
+                                        },
+                                        [
+                                          _vm._v(
+                                            "\n                    description de la formation\n                  "
+                                          )
+                                        ]
+                                      )
+                                    ])
+                                  ])
+                                ]),
+                                _vm._v(" "),
+                                _c(
+                                  "div",
+                                  { staticClass: "bg-gray-300 m-2 p-4" },
+                                  [
+                                    _c(
+                                      "div",
+                                      { staticClass: "mb-5" },
+                                      [
+                                        _c("h2", { staticClass: "text-2xl " }, [
+                                          _vm._v("Episodes de la formation")
+                                        ]),
+                                        _vm._v(" "),
+                                        _vm._l(_vm.form.episodes, function(
+                                          episode,
+                                          index
+                                        ) {
+                                          return _c(
+                                            "div",
+                                            {
+                                              key: index,
+                                              staticClass:
+                                                "p-2 m-1 bg-gray-200 border-4 border-opacity-25 border-green-500"
+                                            },
+                                            [
+                                              _c("div", {}, [
+                                                _c("h2", [
+                                                  _vm._v(
+                                                    " Episode " +
+                                                      _vm._s(index + 1) +
+                                                      " "
+                                                  )
+                                                ]),
+                                                _vm._v(" "),
+                                                _c("div", {}, [
+                                                  _c(
+                                                    "label",
+                                                    {
+                                                      staticClass:
+                                                        "block text-sm font-medium text-gray-700",
+                                                      attrs: {
+                                                        for: "title-" + index
+                                                      }
+                                                    },
+                                                    [
+                                                      _vm._v(
+                                                        "\n                            Titre de l'épisode N* " +
+                                                          _vm._s(index + 1) +
+                                                          "\n                          "
+                                                      )
+                                                    ]
+                                                  ),
+                                                  _vm._v(" "),
+                                                  _c(
+                                                    "div",
+                                                    {
+                                                      staticClass:
+                                                        "mt-1 flex rounded-md shadow-sm"
+                                                    },
+                                                    [
+                                                      _c(
+                                                        "span",
+                                                        {
+                                                          staticClass:
+                                                            "inline-flex items-center px-3 rounded-l-md border border-r-0 border-gray-300 bg-gray-50 text-gray-500 text-sm"
+                                                        },
+                                                        [
+                                                          _vm._v(
+                                                            "\n                              titre :\n                            "
+                                                          )
+                                                        ]
+                                                      ),
+                                                      _vm._v(" "),
+                                                      _c("input", {
+                                                        directives: [
+                                                          {
+                                                            name: "model",
+                                                            rawName: "v-model",
+                                                            value:
+                                                              _vm.form.episodes[
+                                                                index
+                                                              ].title,
+                                                            expression:
+                                                              "form.episodes[index].title"
+                                                          }
+                                                        ],
+                                                        staticClass:
+                                                          "focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-none rounded-r-md sm:text-sm border-gray-300",
+                                                        attrs: {
+                                                          type: "text",
+                                                          name:
+                                                            "company_website",
+                                                          id: "title-" + index,
+                                                          placeholder: "title"
+                                                        },
+                                                        domProps: {
+                                                          value:
+                                                            _vm.form.episodes[
+                                                              index
+                                                            ].title
+                                                        },
+                                                        on: {
+                                                          input: function(
+                                                            $event
+                                                          ) {
+                                                            if (
+                                                              $event.target
+                                                                .composing
+                                                            ) {
+                                                              return
+                                                            }
+                                                            _vm.$set(
+                                                              _vm.form.episodes[
+                                                                index
+                                                              ],
+                                                              "title",
+                                                              $event.target
+                                                                .value
+                                                            )
+                                                          }
+                                                        }
+                                                      })
+                                                    ]
+                                                  )
+                                                ]),
+                                                _vm._v(" "),
+                                                _c("div", {}, [
+                                                  _c(
+                                                    "label",
+                                                    {
+                                                      staticClass:
+                                                        "block text-sm font-medium text-gray-700",
+                                                      attrs: {
+                                                        for:
+                                                          "description-" + index
+                                                      }
+                                                    },
+                                                    [
+                                                      _vm._v(
+                                                        "\n                            Description de l'épisode N* " +
+                                                          _vm._s(index + 1) +
+                                                          "\n                          "
+                                                      )
+                                                    ]
+                                                  ),
+                                                  _vm._v(" "),
+                                                  _c(
+                                                    "div",
+                                                    {
+                                                      staticClass:
+                                                        "mt-1 flex rounded-md shadow-sm"
+                                                    },
+                                                    [
+                                                      _c(
+                                                        "span",
+                                                        {
+                                                          staticClass:
+                                                            "inline-flex items-center px-3 rounded-l-md border border-r-0 border-gray-300 bg-gray-50 text-gray-500 text-sm"
+                                                        },
+                                                        [
+                                                          _vm._v(
+                                                            "\n                              desc :\n                            "
+                                                          )
+                                                        ]
+                                                      ),
+                                                      _vm._v(" "),
+                                                      _c("textarea", {
+                                                        directives: [
+                                                          {
+                                                            name: "model",
+                                                            rawName: "v-model",
+                                                            value:
+                                                              _vm.form.episodes[
+                                                                index
+                                                              ].description,
+                                                            expression:
+                                                              "form.episodes[index].description"
+                                                          }
+                                                        ],
+                                                        staticClass:
+                                                          "focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-none rounded-r-md sm:text-sm border-gray-300",
+                                                        attrs: {
+                                                          name:
+                                                            "company_website",
+                                                          id:
+                                                            "description-" +
+                                                            index,
+                                                          placeholder:
+                                                            "description de l'épi..."
+                                                        },
+                                                        domProps: {
+                                                          value:
+                                                            _vm.form.episodes[
+                                                              index
+                                                            ].description
+                                                        },
+                                                        on: {
+                                                          input: function(
+                                                            $event
+                                                          ) {
+                                                            if (
+                                                              $event.target
+                                                                .composing
+                                                            ) {
+                                                              return
+                                                            }
+                                                            _vm.$set(
+                                                              _vm.form.episodes[
+                                                                index
+                                                              ],
+                                                              "description",
+                                                              $event.target
+                                                                .value
+                                                            )
+                                                          }
+                                                        }
+                                                      })
+                                                    ]
+                                                  )
+                                                ]),
+                                                _vm._v(" "),
+                                                _c("div", {}, [
+                                                  _c(
+                                                    "label",
+                                                    {
+                                                      staticClass:
+                                                        "block text-sm font-medium text-gray-700",
+                                                      attrs: {
+                                                        for:
+                                                          "video_url-" + index
+                                                      }
+                                                    },
+                                                    [
+                                                      _vm._v(
+                                                        "\n                            URL de la video de l'épisode N* " +
+                                                          _vm._s(index + 1) +
+                                                          "\n                          "
+                                                      )
+                                                    ]
+                                                  ),
+                                                  _vm._v(" "),
+                                                  _c(
+                                                    "div",
+                                                    {
+                                                      staticClass:
+                                                        "mt-1 flex rounded-md shadow-sm"
+                                                    },
+                                                    [
+                                                      _c(
+                                                        "span",
+                                                        {
+                                                          staticClass:
+                                                            "inline-flex items-center px-3 rounded-l-md border border-r-0 border-gray-300 bg-gray-50 text-gray-500 text-sm"
+                                                        },
+                                                        [
+                                                          _vm._v(
+                                                            "\n                              http:// :\n                            "
+                                                          )
+                                                        ]
+                                                      ),
+                                                      _vm._v(" "),
+                                                      _c("input", {
+                                                        directives: [
+                                                          {
+                                                            name: "model",
+                                                            rawName: "v-model",
+                                                            value:
+                                                              _vm.form.episodes[
+                                                                index
+                                                              ].video_url,
+                                                            expression:
+                                                              "form.episodes[index].video_url"
+                                                          }
+                                                        ],
+                                                        staticClass:
+                                                          "focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-none rounded-r-md sm:text-sm border-gray-300",
+                                                        attrs: {
+                                                          type: "text",
+                                                          name:
+                                                            "company_website",
+                                                          id:
+                                                            "video_url-" +
+                                                            index,
+                                                          placeholder:
+                                                            "www.example.com"
+                                                        },
+                                                        domProps: {
+                                                          value:
+                                                            _vm.form.episodes[
+                                                              index
+                                                            ].video_url
+                                                        },
+                                                        on: {
+                                                          input: function(
+                                                            $event
+                                                          ) {
+                                                            if (
+                                                              $event.target
+                                                                .composing
+                                                            ) {
+                                                              return
+                                                            }
+                                                            _vm.$set(
+                                                              _vm.form.episodes[
+                                                                index
+                                                              ],
+                                                              "video_url",
+                                                              $event.target
+                                                                .value
+                                                            )
+                                                          }
+                                                        }
+                                                      })
+                                                    ]
+                                                  )
+                                                ])
+                                              ])
+                                            ]
+                                          )
+                                        })
+                                      ],
+                                      2
                                     )
                                   ]
                                 )
-                              ]
-                            ),
-                            _vm._v(" "),
-                            _c("div", [
+                              ]),
+                              _vm._v(" "),
+                              _vm.form.episodes.length < 15
+                                ? _c(
+                                    "button",
+                                    {
+                                      staticClass:
+                                        "bg-green-600 rounded py-2 px-4 text-white",
+                                      on: {
+                                        click: function($event) {
+                                          $event.preventDefault()
+                                          return _vm.add($event)
+                                        }
+                                      }
+                                    },
+                                    [
+                                      _vm._v(
+                                        "\n                  +\n                "
+                                      )
+                                    ]
+                                  )
+                                : _vm._e(),
+                              _vm._v(" "),
+                              _vm.form.episodes.length > 1
+                                ? _c(
+                                    "button",
+                                    {
+                                      staticClass:
+                                        "bg-red-600 rounded py-2 px-4 text-white",
+                                      on: {
+                                        click: function($event) {
+                                          $event.preventDefault()
+                                          return _vm.remove($event)
+                                        }
+                                      }
+                                    },
+                                    [
+                                      _vm._v(
+                                        "\n                  🗑️\n                "
+                                      )
+                                    ]
+                                  )
+                                : _vm._e()
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "div",
+                            {
+                              staticClass:
+                                "px-4 py-3 bg-gray-50 text-right sm:px-6"
+                            },
+                            [
                               _c(
-                                "label",
+                                "button",
                                 {
                                   staticClass:
-                                    "block text-sm font-medium text-gray-700",
-                                  attrs: { for: "about" }
+                                    "inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500",
+                                  attrs: { type: "submit" }
                                 },
                                 [
                                   _vm._v(
-                                    "\n                Description\n              "
+                                    "\n                  Save\n                "
                                   )
                                 ]
-                              ),
-                              _vm._v(" "),
-                              _c("div", { staticClass: "mt-1" }, [
-                                _c("textarea", {
-                                  directives: [
-                                    {
-                                      name: "model",
-                                      rawName: "v-model",
-                                      value: _vm.form.description,
-                                      expression: "form.description"
-                                    }
-                                  ],
-                                  staticClass:
-                                    "shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border-gray-300 rounded-md",
-                                  attrs: {
-                                    id: "about",
-                                    name: "about",
-                                    rows: "3",
-                                    placeholder: "descr"
-                                  },
-                                  domProps: { value: _vm.form.description },
-                                  on: {
-                                    input: function($event) {
-                                      if ($event.target.composing) {
-                                        return
-                                      }
-                                      _vm.$set(
-                                        _vm.form,
-                                        "description",
-                                        $event.target.value
-                                      )
-                                    }
-                                  }
-                                })
-                              ]),
-                              _vm._v(" "),
-                              _c(
-                                "p",
-                                { staticClass: "mt-2 text-sm text-gray-500" },
-                                [
-                                  _vm._v(
-                                    "\n                description de la formation\n              "
-                                  )
-                                ]
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "div",
-                                { staticClass: "mb-5" },
-                                [
-                                  _c("h2", { staticClass: "text-2xl" }, [
-                                    _vm._v(" Episodes de la formation ")
-                                  ]),
-                                  _vm._v(" "),
-                                  _vm._l(_vm.form.episodes, function(
-                                    episode,
-                                    index
-                                  ) {
-                                    return _c("div", { key: index }, [
-                                      _c("div", {}, [
-                                        _c("div", {}, [
-                                          _c(
-                                            "label",
-                                            {
-                                              staticClass:
-                                                "block text-sm font-medium text-gray-700",
-                                              attrs: { for: "title-" + index }
-                                            },
-                                            [
-                                              _vm._v(
-                                                "\n                  Titre de l'épisode N* " +
-                                                  _vm._s(index + 1) +
-                                                  "\n                "
-                                              )
-                                            ]
-                                          ),
-                                          _vm._v(" "),
-                                          _c(
-                                            "div",
-                                            {
-                                              staticClass:
-                                                "mt-1 flex rounded-md shadow-sm"
-                                            },
-                                            [
-                                              _c(
-                                                "span",
-                                                {
-                                                  staticClass:
-                                                    "inline-flex items-center px-3 rounded-l-md border border-r-0 border-gray-300 bg-gray-50 text-gray-500 text-sm"
-                                                },
-                                                [
-                                                  _vm._v(
-                                                    "\n                   titre : \n                  "
-                                                  )
-                                                ]
-                                              ),
-                                              _vm._v(" "),
-                                              _c("input", {
-                                                directives: [
-                                                  {
-                                                    name: "model",
-                                                    rawName: "v-model",
-                                                    value:
-                                                      _vm.form.episodes[index]
-                                                        .title,
-                                                    expression:
-                                                      "form.episodes[index].title"
-                                                  }
-                                                ],
-                                                staticClass:
-                                                  "focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-none rounded-r-md sm:text-sm border-gray-300",
-                                                attrs: {
-                                                  type: "text",
-                                                  name: "company_website",
-                                                  id: "title-" + index,
-                                                  placeholder: "title"
-                                                },
-                                                domProps: {
-                                                  value:
-                                                    _vm.form.episodes[index]
-                                                      .title
-                                                },
-                                                on: {
-                                                  input: function($event) {
-                                                    if (
-                                                      $event.target.composing
-                                                    ) {
-                                                      return
-                                                    }
-                                                    _vm.$set(
-                                                      _vm.form.episodes[index],
-                                                      "title",
-                                                      $event.target.value
-                                                    )
-                                                  }
-                                                }
-                                              })
-                                            ]
-                                          )
-                                        ]),
-                                        _vm._v(" "),
-                                        _c("div", {}, [
-                                          _c(
-                                            "label",
-                                            {
-                                              staticClass:
-                                                "block text-sm font-medium text-gray-700",
-                                              attrs: {
-                                                for: "description-" + index
-                                              }
-                                            },
-                                            [
-                                              _vm._v(
-                                                "\n                  Description de l'épisode N* " +
-                                                  _vm._s(index + 1) +
-                                                  "\n                "
-                                              )
-                                            ]
-                                          ),
-                                          _vm._v(" "),
-                                          _c(
-                                            "div",
-                                            {
-                                              staticClass:
-                                                "mt-1 flex rounded-md shadow-sm"
-                                            },
-                                            [
-                                              _c(
-                                                "span",
-                                                {
-                                                  staticClass:
-                                                    "inline-flex items-center px-3 rounded-l-md border border-r-0 border-gray-300 bg-gray-50 text-gray-500 text-sm"
-                                                },
-                                                [
-                                                  _vm._v(
-                                                    "\n                   desc : \n                  "
-                                                  )
-                                                ]
-                                              ),
-                                              _vm._v(" "),
-                                              _c("textarea", {
-                                                directives: [
-                                                  {
-                                                    name: "model",
-                                                    rawName: "v-model",
-                                                    value:
-                                                      _vm.form.episodes[index]
-                                                        .description,
-                                                    expression:
-                                                      "form.episodes[index].description"
-                                                  }
-                                                ],
-                                                staticClass:
-                                                  "focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-none rounded-r-md sm:text-sm border-gray-300",
-                                                attrs: {
-                                                  name: "company_website",
-                                                  id: "description-" + index,
-                                                  placeholder:
-                                                    "description de l'épi..."
-                                                },
-                                                domProps: {
-                                                  value:
-                                                    _vm.form.episodes[index]
-                                                      .description
-                                                },
-                                                on: {
-                                                  input: function($event) {
-                                                    if (
-                                                      $event.target.composing
-                                                    ) {
-                                                      return
-                                                    }
-                                                    _vm.$set(
-                                                      _vm.form.episodes[index],
-                                                      "description",
-                                                      $event.target.value
-                                                    )
-                                                  }
-                                                }
-                                              })
-                                            ]
-                                          )
-                                        ]),
-                                        _vm._v(" "),
-                                        _c("div", {}, [
-                                          _c(
-                                            "label",
-                                            {
-                                              staticClass:
-                                                "block text-sm font-medium text-gray-700",
-                                              attrs: {
-                                                for: "video_url-" + index
-                                              }
-                                            },
-                                            [
-                                              _vm._v(
-                                                "\n                  URL de la video de l'épisode N* " +
-                                                  _vm._s(index + 1) +
-                                                  "\n                "
-                                              )
-                                            ]
-                                          ),
-                                          _vm._v(" "),
-                                          _c(
-                                            "div",
-                                            {
-                                              staticClass:
-                                                "mt-1 flex rounded-md shadow-sm"
-                                            },
-                                            [
-                                              _c(
-                                                "span",
-                                                {
-                                                  staticClass:
-                                                    "inline-flex items-center px-3 rounded-l-md border border-r-0 border-gray-300 bg-gray-50 text-gray-500 text-sm"
-                                                },
-                                                [
-                                                  _vm._v(
-                                                    "\n                    http:// : \n                  "
-                                                  )
-                                                ]
-                                              ),
-                                              _vm._v(" "),
-                                              _c("input", {
-                                                directives: [
-                                                  {
-                                                    name: "model",
-                                                    rawName: "v-model",
-                                                    value:
-                                                      _vm.form.episodes[index]
-                                                        .video_url,
-                                                    expression:
-                                                      "form.episodes[index].video_url"
-                                                  }
-                                                ],
-                                                staticClass:
-                                                  "focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-none rounded-r-md sm:text-sm border-gray-300",
-                                                attrs: {
-                                                  type: "text",
-                                                  name: "company_website",
-                                                  id: "video_url-" + index,
-                                                  placeholder: "www.example.com"
-                                                },
-                                                domProps: {
-                                                  value:
-                                                    _vm.form.episodes[index]
-                                                      .video_url
-                                                },
-                                                on: {
-                                                  input: function($event) {
-                                                    if (
-                                                      $event.target.composing
-                                                    ) {
-                                                      return
-                                                    }
-                                                    _vm.$set(
-                                                      _vm.form.episodes[index],
-                                                      "video_url",
-                                                      $event.target.value
-                                                    )
-                                                  }
-                                                }
-                                              })
-                                            ]
-                                          )
-                                        ])
-                                      ])
-                                    ])
-                                  })
-                                ],
-                                2
                               )
-                            ]),
-                            _vm._v(" "),
-                            _vm.form.episodes.length < 15
-                              ? _c(
-                                  "button",
-                                  {
-                                    staticClass:
-                                      "bg-green-600 rounded py-2 px-4 text-white ",
-                                    on: {
-                                      click: function($event) {
-                                        $event.preventDefault()
-                                        return _vm.add($event)
-                                      }
-                                    }
-                                  },
-                                  [_vm._v("+")]
-                                )
-                              : _vm._e(),
-                            _vm._v(" "),
-                            _vm.form.episodes.length > 1
-                              ? _c(
-                                  "button",
-                                  {
-                                    staticClass:
-                                      "bg-red-600 rounded py-2 px-4 text-white ",
-                                    on: {
-                                      click: function($event) {
-                                        $event.preventDefault()
-                                        return _vm.remove($event)
-                                      }
-                                    }
-                                  },
-                                  [_vm._v("🗑️")]
-                                )
-                              : _vm._e()
-                          ]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "div",
-                          {
-                            staticClass:
-                              "px-4 py-3 bg-gray-50 text-right sm:px-6"
-                          },
-                          [
-                            _c(
-                              "button",
-                              {
-                                staticClass:
-                                  "inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500",
-                                attrs: { type: "submit" }
-                              },
-                              [_vm._v("\n              Save\n            ")]
-                            )
-                          ]
-                        )
-                      ]
-                    )
-                  ]
-                )
-              ])
+                            ]
+                          )
+                        ]
+                      )
+                    ]
+                  )
+                ]
+              )
             ])
           ])
         ],
@@ -29025,9 +29421,7 @@ var render = function() {
         "AppLayout",
         [
           _c("template", { slot: "header" }, [
-            _c("p", [
-              _vm._v("Modification de  " + _vm._s(_vm.courseData.title))
-            ])
+            _c("p", [_vm._v("Modification de " + _vm._s(_vm.courseData.title))])
           ]),
           _vm._v(" "),
           _c("div", [
@@ -29039,12 +29433,16 @@ var render = function() {
                     {
                       staticClass: "text-lg font-medium leading-6 text-gray-900"
                     },
-                    [_vm._v("Creation de la formation")]
+                    [
+                      _vm._v(
+                        "\n              Creation de la formation\n            "
+                      )
+                    ]
                   ),
                   _vm._v(" "),
                   _c("p", { staticClass: "mt-1 text-sm text-gray-600" }, [
                     _vm._v(
-                      "\n          This information will be displayed publicly so be careful what you share.\n        "
+                      "\n              This information will be displayed publicly so be careful what\n              you share.\n            "
                     )
                   ]),
                   _vm._v(" "),
@@ -29054,9 +29452,9 @@ var render = function() {
                         { staticClass: "bg-green-200 text-green-600 p-3" },
                         [
                           _vm._v(
-                            "\n          " +
+                            "\n              " +
                               _vm._s(_vm.$page.flash.success) +
-                              " \n        "
+                              "\n            "
                           )
                         ]
                       )
@@ -29064,7 +29462,7 @@ var render = function() {
                 ])
               ]),
               _vm._v(" "),
-              _c("div", { staticClass: " pt-10 mt-5 md:mt-0 md:col-span-2" }, [
+              _c("div", { staticClass: "pt-10 mt-5 md:mt-0 md:col-span-2" }, [
                 _c(
                   "form",
                   {
@@ -29105,7 +29503,7 @@ var render = function() {
                                       },
                                       [
                                         _vm._v(
-                                          "\n                  Titre\n                "
+                                          "\n                      Titre\n                    "
                                         )
                                       ]
                                     ),
@@ -29125,7 +29523,7 @@ var render = function() {
                                           },
                                           [
                                             _vm._v(
-                                              "\n                   titre : \n                  "
+                                              "\n                        titre :\n                      "
                                             )
                                           ]
                                         ),
@@ -29180,7 +29578,7 @@ var render = function() {
                                 },
                                 [
                                   _vm._v(
-                                    "\n                Description\n              "
+                                    "\n                    Description\n                  "
                                   )
                                 ]
                               ),
@@ -29226,7 +29624,7 @@ var render = function() {
                                 { staticClass: "mt-2 text-sm text-gray-500" },
                                 [
                                   _vm._v(
-                                    "\n                description de la formation\n              "
+                                    "\n                    description de la formation\n                  "
                                   )
                                 ]
                               ),
@@ -29236,7 +29634,7 @@ var render = function() {
                                 { staticClass: "mb-5" },
                                 [
                                   _c("h2", { staticClass: "text-2xl" }, [
-                                    _vm._v(" Episodes de la formation ")
+                                    _vm._v("Episodes de la formation")
                                   ]),
                                   _vm._v(" "),
                                   _vm._l(_vm.courseData.episodes, function(
@@ -29255,9 +29653,9 @@ var render = function() {
                                             },
                                             [
                                               _vm._v(
-                                                "\n                  Titre de l'épisode N* " +
+                                                "\n                            Titre de l'épisode N* " +
                                                   _vm._s(index + 1) +
-                                                  "\n                "
+                                                  "\n                          "
                                               )
                                             ]
                                           ),
@@ -29277,7 +29675,7 @@ var render = function() {
                                                 },
                                                 [
                                                   _vm._v(
-                                                    "\n                   titre : \n                  "
+                                                    "\n                              titre :\n                            "
                                                   )
                                                 ]
                                               ),
@@ -29342,9 +29740,9 @@ var render = function() {
                                             },
                                             [
                                               _vm._v(
-                                                "\n                  Description de l'épisode N* " +
+                                                "\n                            Description de l'épisode N* " +
                                                   _vm._s(index + 1) +
-                                                  "\n                "
+                                                  "\n                          "
                                               )
                                             ]
                                           ),
@@ -29364,7 +29762,7 @@ var render = function() {
                                                 },
                                                 [
                                                   _vm._v(
-                                                    "\n                   desc : \n                  "
+                                                    "\n                              desc :\n                            "
                                                   )
                                                 ]
                                               ),
@@ -29429,9 +29827,9 @@ var render = function() {
                                             },
                                             [
                                               _vm._v(
-                                                "\n                  URL de la video de l'épisode N* " +
+                                                "\n                            URL de la video de l'épisode N* " +
                                                   _vm._s(index + 1) +
-                                                  "\n                "
+                                                  "\n                          "
                                               )
                                             ]
                                           ),
@@ -29451,7 +29849,7 @@ var render = function() {
                                                 },
                                                 [
                                                   _vm._v(
-                                                    "\n                    http:// : \n                  "
+                                                    "\n                              http:// :\n                            "
                                                   )
                                                 ]
                                               ),
@@ -29516,7 +29914,7 @@ var render = function() {
                                   "button",
                                   {
                                     staticClass:
-                                      "bg-green-600 rounded py-2 px-4 text-white ",
+                                      "bg-green-600 rounded py-2 px-4 text-white",
                                     on: {
                                       click: function($event) {
                                         $event.preventDefault()
@@ -29524,7 +29922,11 @@ var render = function() {
                                       }
                                     }
                                   },
-                                  [_vm._v("+")]
+                                  [
+                                    _vm._v(
+                                      "\n                  +\n                "
+                                    )
+                                  ]
                                 )
                               : _vm._e(),
                             _vm._v(" "),
@@ -29533,7 +29935,7 @@ var render = function() {
                                   "button",
                                   {
                                     staticClass:
-                                      "bg-red-600 rounded py-2 px-4 text-white ",
+                                      "bg-red-600 rounded py-2 px-4 text-white",
                                     on: {
                                       click: function($event) {
                                         $event.preventDefault()
@@ -29541,7 +29943,11 @@ var render = function() {
                                       }
                                     }
                                   },
-                                  [_vm._v("🗑️")]
+                                  [
+                                    _vm._v(
+                                      "\n                  🗑️\n                "
+                                    )
+                                  ]
                                 )
                               : _vm._e()
                           ]
@@ -29563,7 +29969,7 @@ var render = function() {
                               },
                               [
                                 _vm._v(
-                                  "\n              Modifier ma formation\n            "
+                                  "\n                  Modifier ma formation\n                "
                                 )
                               ]
                             )
@@ -29612,94 +30018,121 @@ var render = function() {
         "AppLayout",
         [
           _c("template", { slot: "header" }, [
-            _c("p", [_vm._v("Listes des formation")])
+            _c("p", [_vm._v("Listes des formation ")])
           ]),
           _vm._v(" "),
-          _vm._l(_vm.courseList, function(course, key) {
-            return _c("div", { key: key, staticClass: "py-2" }, [
-              _c(
-                "div",
-                { staticClass: "px-2 bg-white rounded shadow p-4 m-4" },
-                [
-                  _c("div", { staticClass: " text-sm text-gray-400" }, [
-                    _vm._v(" Mise en ligne par " + _vm._s(course.user.name))
-                  ]),
-                  _vm._v(" "),
-                  _c("p", { staticClass: "text-gray-500 text-sm " }, [
-                    _vm._v(" " + _vm._s(course.participants) + " paticipant"),
-                    parseInt(course.participants) > 1
-                      ? _c("span", [_vm._v("s")])
-                      : _vm._e()
-                  ]),
-                  _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "text-center p-3" },
+            [_c("Page", { attrs: { data: _vm.courseList } })],
+            1
+          ),
+          _vm._v(" "),
+          _c("div", { staticClass: "flex items-center justify-center " }, [
+            _c(
+              "div",
+              { staticClass: " bg-gray-200  md:w-4/6 " },
+              _vm._l(_vm.courseList.data, function(course, key) {
+                return _c("div", { key: key, staticClass: "py-1 " }, [
                   _c(
                     "div",
-                    { staticClass: "flex justify-between items-center" },
+                    { staticClass: "px-2 bg-white rounded shadow p-4 m-2" },
                     [
-                      _c("div", { staticClass: "text-4xl" }, [
+                      _c("div", { staticClass: "text-sm text-gray-400" }, [
                         _vm._v(
-                          "\n            " +
-                            _vm._s(course.title) +
-                            "\n          "
+                          "\n          Mise en ligne par " +
+                            _vm._s(course.user.name) +
+                            "\n        "
                         )
                       ]),
                       _vm._v(" "),
-                      _c("div", { staticClass: " text-sm text-gray-400" }, [
+                      _c("p", { staticClass: "text-gray-500 text-sm" }, [
                         _vm._v(
-                          _vm._s(course.episodes_count) +
-                            " épisode" +
-                            _vm._s(course.episodes_count > 1 ? "s" : "") +
-                            " "
-                        )
-                      ])
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "text-sm text-gray-500" }, [
-                    _vm._v(
-                      "\n          " + _vm._s(course.description) + "\n        "
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    { staticClass: "flex items-center justify-between" },
-                    [
+                          "\n          " +
+                            _vm._s(course.participants) +
+                            " paticipant"
+                        ),
+                        parseInt(course.participants) > 1
+                          ? _c("span", [_vm._v("s")])
+                          : _vm._e()
+                      ]),
+                      _vm._v(" "),
                       _c(
-                        "a",
-                        {
-                          staticClass:
-                            "bg-indigo-400 text-sm text-white px-2 py-2 mt-3 rounded hover:bg-indigo-700 inline-block",
-                          attrs: { href: "course/" + course.id }
-                        },
+                        "div",
+                        { staticClass: "flex justify-between items-center" },
                         [
-                          _vm._v(
-                            "\n                    Voir la formation\n                  "
-                          )
+                          _c("div", { staticClass: "text-4xl" }, [
+                            _vm._v(
+                              "\n            " +
+                                _vm._s(course.title) +
+                                "\n          "
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "text-sm text-gray-400" }, [
+                            _vm._v(
+                              "\n            " +
+                                _vm._s(course.episodes_count) +
+                                " épisode" +
+                                _vm._s(course.episodes_count > 1 ? "s" : "") +
+                                "\n          "
+                            )
+                          ])
                         ]
                       ),
                       _vm._v(" "),
-                      _vm.userId == course.user_id
-                        ? _c(
+                      _c("div", { staticClass: "text-sm text-gray-500" }, [
+                        _vm._v(
+                          "\n          " +
+                            _vm._s(course.description) +
+                            "\n        "
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        { staticClass: "flex items-center justify-between" },
+                        [
+                          _c(
                             "a",
                             {
                               staticClass:
-                                "bg-gray-400 text-sm text-white px-2 py-2 mt-3 rounded hover:bg-indigo-700 inline-block",
-                              attrs: { href: "courses/edit/" + course.id }
+                                "bg-indigo-400 text-sm text-white px-2 py-2 mt-3 rounded hover:bg-indigo-700 inline-block",
+                              attrs: { href: "course/" + course.id }
                             },
                             [
                               _vm._v(
-                                "\n                    Modifier la formation\n                  "
+                                "\n            Voir la formation\n          "
                               )
                             ]
-                          )
-                        : _vm._e()
+                          ),
+                          _vm._v(" "),
+                          _vm.userId == course.user_id
+                            ? _c(
+                                "a",
+                                {
+                                  staticClass:
+                                    "bg-gray-400 text-sm text-white px-2 py-2 mt-3 rounded hover:bg-indigo-700 inline-block",
+                                  attrs: { href: "courses/edit/" + course.id }
+                                },
+                                [
+                                  _vm._v(
+                                    "\n            Modifier la formation\n          "
+                                  )
+                                ]
+                              )
+                            : _vm._e()
+                        ]
+                      )
                     ]
                   )
-                ]
-              )
-            ])
-          }),
+                ])
+              }),
+              0
+            )
+          ]),
+          _vm._v(" "),
+          _c("Page", { attrs: { data: _vm.courseList } }),
           _vm._v(" "),
           _c("h1", [_vm._v("Bonjour Courses")])
         ],
@@ -29708,6 +30141,84 @@ var render = function() {
     ],
     1
   )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Pages/Courses/Page.vue?vue&type=template&id=0a0a29cf&":
+/*!**********************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Pages/Courses/Page.vue?vue&type=template&id=0a0a29cf& ***!
+  \**********************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [
+    _c(
+      "div",
+      { staticClass: "p-1" },
+      _vm._l(_vm.courseList.links, function(link, index) {
+        return _c(
+          "inertia-link",
+          {
+            key: link.label,
+            staticClass: " text-indigo-700 bg-gray-400  border-gray-500 p-1 ",
+            attrs: { href: link.url }
+          },
+          [
+            index != 0 && index != _vm.courseList.links.length - 1
+              ? _c(
+                  "span",
+                  {
+                    staticClass: " text-white rounded bg-blue-400 px-1",
+                    class: {
+                      "text-white rounded bg-blue-600 py-2 px-4": link.active
+                    }
+                  },
+                  [_vm._v(" " + _vm._s(link.label) + " ")]
+                )
+              : _vm._e(),
+            _vm._v(" "),
+            index == 0
+              ? _c(
+                  "span",
+                  {
+                    staticClass: "text-white rounded bg-blue-400 px-1",
+                    class: {
+                      "text-white rounded bg-blue-600 py-2 px-4": link.active
+                    }
+                  },
+                  [_vm._v(" < ")]
+                )
+              : _vm._e(),
+            _vm._v(" "),
+            index == _vm.courseList.links.length - 1
+              ? _c(
+                  "span",
+                  {
+                    staticClass: "text-white rounded bg-blue-400 px-1",
+                    class: { "text-white rounded bg-blue-600 p-2": link.active }
+                  },
+                  [_vm._v(" > ")]
+                )
+              : _vm._e()
+          ]
+        )
+      }),
+      1
+    )
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -44961,6 +45472,8 @@ var map = {
 	"./Courses/Edit.vue": "./resources/js/Pages/Courses/Edit.vue",
 	"./Courses/Index": "./resources/js/Pages/Courses/Index.vue",
 	"./Courses/Index.vue": "./resources/js/Pages/Courses/Index.vue",
+	"./Courses/Page": "./resources/js/Pages/Courses/Page.vue",
+	"./Courses/Page.vue": "./resources/js/Pages/Courses/Page.vue",
 	"./Courses/ProgressBar": "./resources/js/Pages/Courses/ProgressBar.vue",
 	"./Courses/ProgressBar.vue": "./resources/js/Pages/Courses/ProgressBar.vue",
 	"./Courses/ProgressButton": "./resources/js/Pages/Courses/ProgressButton.vue",
@@ -45345,6 +45858,75 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Index_vue_vue_type_template_id_55ea997c___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Index_vue_vue_type_template_id_55ea997c___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/Pages/Courses/Page.vue":
+/*!*********************************************!*\
+  !*** ./resources/js/Pages/Courses/Page.vue ***!
+  \*********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Page_vue_vue_type_template_id_0a0a29cf___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Page.vue?vue&type=template&id=0a0a29cf& */ "./resources/js/Pages/Courses/Page.vue?vue&type=template&id=0a0a29cf&");
+/* harmony import */ var _Page_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Page.vue?vue&type=script&lang=js& */ "./resources/js/Pages/Courses/Page.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _Page_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _Page_vue_vue_type_template_id_0a0a29cf___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _Page_vue_vue_type_template_id_0a0a29cf___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/Pages/Courses/Page.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/Pages/Courses/Page.vue?vue&type=script&lang=js&":
+/*!**********************************************************************!*\
+  !*** ./resources/js/Pages/Courses/Page.vue?vue&type=script&lang=js& ***!
+  \**********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Page_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./Page.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Pages/Courses/Page.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Page_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/Pages/Courses/Page.vue?vue&type=template&id=0a0a29cf&":
+/*!****************************************************************************!*\
+  !*** ./resources/js/Pages/Courses/Page.vue?vue&type=template&id=0a0a29cf& ***!
+  \****************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Page_vue_vue_type_template_id_0a0a29cf___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./Page.vue?vue&type=template&id=0a0a29cf& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Pages/Courses/Page.vue?vue&type=template&id=0a0a29cf&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Page_vue_vue_type_template_id_0a0a29cf___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Page_vue_vue_type_template_id_0a0a29cf___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 

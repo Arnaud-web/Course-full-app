@@ -7,9 +7,9 @@
         <x-jet-validation-errors class="mb-4" />
 
         @if (session('status'))
-            <div class="mb-4 font-medium text-sm text-green-600">
-                {{ session('status') }}
-            </div>
+        <div class="mb-4 font-medium text-sm text-green-600">
+            {{ session('status') }}
+        </div>
         @endif
 
         <form method="POST" action="{{ route('login') }}">
@@ -33,10 +33,12 @@
             </div>
 
             <div class="flex items-center justify-end mt-4">
+                <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 underline mx-10 ">Register</a>
+
                 @if (Route::has('password.request'))
-                    <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('password.request') }}">
-                        {{ __('Forgot your password?') }}
-                    </a>
+                <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('password.request') }}">
+                    {{ __('Forgot your password?') }}
+                </a>
                 @endif
 
                 <x-jet-button class="ml-4">
@@ -44,5 +46,11 @@
                 </x-jet-button>
             </div>
         </form>
+        <div class="flex items-center justify-center m-2 ">
+
+
+        </div>
     </x-jet-authentication-card>
+
+
 </x-guest-layout>

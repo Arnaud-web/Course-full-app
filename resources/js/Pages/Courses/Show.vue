@@ -4,6 +4,8 @@
       <template slot="header">
         <p>{{ course.title }}</p>
       </template>
+      <div class="flex items-center justify-center ">
+      <div class = " bg-white mt-4 md:w-4/6 " >
       <div class="py-4 mx-15">
         <div class="text-sm text-gray-500">
           <h3>Episode N* {{ currentKey + 1 }}</h3>
@@ -45,6 +47,9 @@
           </ul>
         </div>
       </div>
+      </div>
+      </div>
+
     </AppLayout>
   </div>
 </template>

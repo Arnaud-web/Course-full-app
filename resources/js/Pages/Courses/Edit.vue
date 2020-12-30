@@ -2,14 +2,14 @@
   <div>
     <AppLayout>
       <template slot="header">
-        <p>Modification de {{ courseData.title }}</p>
+        <p>Modification de la  formation</p>
       </template>
       <div>
         <div class="md:grid md:grid-cols-3 md:gap-6">
           <div class="md:col-span-1">
             <div class="px-4 sm:px-0">
               <h3 class="text-lg font-medium leading-6 text-gray-900">
-                Creation de la formation
+                Modification de la formation
               </h3>
               <p class="mt-1 text-sm text-gray-600">
                 This information will be displayed publicly so be careful what
@@ -23,17 +23,19 @@
               </div>
             </div>
           </div>
-          <div class="pt-10 mt-5 md:mt-0 md:col-span-2">
+          <div class="pt-10 mt-5 md:mt-0 md:col-span-2 mr-6 " >
             <form @submit.prevent="submit">
               <div class="shadow sm:rounded-md sm:overflow-hidden">
-                <div class="px-4 py-5 bg-white space-y-6 sm:p-6">
-                  <div class="grid grid-cols-3 gap-6">
-                    <div class="col-span-3 sm:col-span-2">
+                <div class="px-4 py-5 bg-gray-400 space-y-6 sm:p-2 border-4 border-opacity-25 border-green-500 ">
+                  <div>
+                  <div class="bg-gray-200 p-2">
+                    <div>
+                    <div class=" ">
                       <label
                         for="company_website"
                         class="block text-sm font-medium text-gray-700"
                       >
-                        Titre
+                        Titre de la formation
                       </label>
                       <div class="mt-1 flex rounded-md shadow-sm">
                         <span
@@ -45,14 +47,14 @@
                           type="text"
                           name="company_website"
                           id="company_website"
-                          class="focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-none rounded-r-md sm:text-sm border-gray-300"
+                          class="focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-none rounded-r-md sm:text-sm border-gray-700"
                           placeholder="title"
                           v-model="courseData.title"
                         />
                       </div>
                     </div>
                   </div>
-
+                  <div>
                   <div>
                     <label
                       for="about"
@@ -66,20 +68,35 @@
                         name="about"
                         rows="3"
                         class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border-gray-300 rounded-md"
-                        placeholder="descr"
+                        placeholder="desc"
                         v-model="courseData.description"
                       ></textarea>
                     </div>
                     <p class="mt-2 text-sm text-gray-500">
                       description de la formation
                     </p>
+                    </div>
+                    <div class="text-right sm:px-6">
+                    <button
+                    class="bg-red-600 rounded py-2 px-4 text-white"
+                    @click.prevent="deleteFormation()"
+                  >
+                    🗑️
+                  </button>
+                    </div>
+                    </div>
+                    </div>
+
+
+                    <div class = "bg-gray-300 m-2 p-4" >
                     <div class="mb-5">
-                      <h2 class="text-2xl">Episodes de la formation</h2>
-                      <div
+                      <h2 class="text-2xl ">Episodes de la formation</h2>
+                      <div class = "p-2 m-1 bg-gray-200 border-4 border-opacity-25 border-green-500"
                         v-for="(episode, index) in courseData.episodes"
                         :key="index"
                       >
                         <div class="">
+                          <h2> Episode {{index+1}} </h2>
                           <div class="">
                             <label
                               :for="'title-' + index"
@@ -149,30 +166,43 @@
                             </div>
                           </div>
                         </div>
+                         <div class="text-right sm:px-6">
+                         <button
+                    class="bg-red-600 rounded py-2 px-4 text-white"
+                    v-if="index > 0 "
+                    @click.prevent="remove(index)"
+                  >
+                    🗑️
+                  </button>
+                  </div>
+                          <!-- <div class=" bloc bg-green-500 w-full h-0.5 text-white rounded my-2" ></div> -->
                       </div>
                     </div>
-                  </div>
-                  <button
+                    <button
                     class="bg-green-600 rounded py-2 px-4 text-white"
                     v-if="courseData.episodes.length < 15"
                     @click.prevent="add"
                   >
                     +
                   </button>
-                  <button
+                  <!-- <button
                     class="bg-red-600 rounded py-2 px-4 text-white"
                     v-if="courseData.episodes.length > 1"
                     @click.prevent="remove"
                   >
                     🗑️
-                  </button>
+                  </button> -->
+                  </div>
+                  
+                  </div>
+                  
                 </div>
                 <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">
                   <button
                     type="submit"
                     class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                   >
-                    Modifier ma formation
+                    Save
                   </button>
                 </div>
               </div>
@@ -199,6 +229,9 @@ export default {
     submit() {
       this.$inertia.patch("/courses/" + this.courseData.id, this.courseData);
     },
+      deleteFormation() {
+      this.$inertia.delete("/courses/" + this.courseData.id, this.courseData);
+    },
     add() {
       this.courseData.episodes.push({
         title: null,
@@ -206,8 +239,8 @@ export default {
         video_url: null,
       });
     },
-    remove() {
-      this.courseData.episodes.pop();
+    remove(index) {
+      this.courseData.episodes.splice(index,1);
     },
   },
 };

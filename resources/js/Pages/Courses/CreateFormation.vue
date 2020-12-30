@@ -23,10 +23,10 @@
               </div>
             </div>
           </div>
-          <div class="pt-10 mt-5 md:mt-0 md:col-span-2 mr-6" >
+          <div class="pt-10 mt-5 md:mt-0 md:col-span-2 mr-6 " >
             <form @submit.prevent="submit">
               <div class="shadow sm:rounded-md sm:overflow-hidden">
-                <div class="px-4 py-5 bg-white space-y-6 sm:p-2">
+                <div class="px-4 py-5 bg-gray-400 space-y-6 sm:p-2 border-4 border-opacity-25 border-green-500 ">
                   <div>
                   <div class="bg-gray-200 p-2">
                     <div>
@@ -35,7 +35,7 @@
                         for="company_website"
                         class="block text-sm font-medium text-gray-700"
                       >
-                        Titre
+                        Titre de la formation
                       </label>
                       <div class="mt-1 flex rounded-md shadow-sm">
                         <span
@@ -47,7 +47,7 @@
                           type="text"
                           name="company_website"
                           id="company_website"
-                          class="focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-none rounded-r-md sm:text-sm border-gray-300"
+                          class="focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-none rounded-r-md sm:text-sm border-gray-700"
                           placeholder="title"
                           v-model="form.title"
                         />
@@ -158,25 +158,36 @@
                             </div>
                           </div>
                         </div>
+                        <div class="text-right sm:px-6">
+                         <button
+                    class="bg-red-600 rounded py-2 px-4 text-white"
+                    v-if="index > 0 "
+                    @click.prevent="remove(index)"
+                  >
+                    🗑️
+                  </button>
+                  </div>
                           <!-- <div class=" bloc bg-green-500 w-full h-0.5 text-white rounded my-2" ></div> -->
                       </div>
                     </div>
-                  </div>
-                  </div>
-                  <button
+                    <button
                     class="bg-green-600 rounded py-2 px-4 text-white"
                     v-if="form.episodes.length < 15"
                     @click.prevent="add"
                   >
                     +
                   </button>
-                  <button
+                  <!-- <button
                     class="bg-red-600 rounded py-2 px-4 text-white"
                     v-if="form.episodes.length > 1"
                     @click.prevent="remove"
                   >
                     🗑️
-                  </button>
+                  </button> -->
+                  </div>
+                  
+                  </div>
+                  
                 </div>
                 <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">
                   <button
@@ -220,8 +231,8 @@ export default {
         video_url: null,
       });
     },
-    remove() {
-      this.form.episodes.pop();
+    remove(index) {
+      this.form.episodes.splice(index,1);
     },
   },
 };

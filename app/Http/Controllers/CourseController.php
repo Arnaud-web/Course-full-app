@@ -27,7 +27,10 @@ class CourseController extends Controller
             ))
             ->withCount('episodes')->latest()->paginate(5);
         // dd($courses);
-        $userId = auth()->user()->id;
+        $userId = null;
+        if(isset(auth()->user()->id)){
+        $userId =  auth()->user()->id;
+        }
         return Inertia::render('Courses/Index', [
             'courses' => $courses,
             'userId' => $userId,
@@ -47,10 +50,6 @@ class CourseController extends Controller
         );
     }
 
-    public function episodes()
-    {
-        return $this->belongsTo(Episode::class, 'completions', 'user_id', 'episode_id');
-    }
     public function toggleProgress(Request $request)
     {
         $id = $request->input('episodeId');
@@ -106,5 +105,14 @@ class CourseController extends Controller
             Episode::create($episode);
         }
         return Redirect::route('courses.create')->with('success', 'Felicitaion votre formation a bien été mise a jour');
+    }
+
+    public function deleteFormation(Request $request){
+        $course = Course::where('id', $request->id)->with('episodes')->first();
+        $course->episodes()->delete();
+        $course->delete();
+        return Redirect::route('courses.create')->with('success', 'Felicitaion votre formation a bien été suprimer ');
+
+        // dd($course);
     }
 }

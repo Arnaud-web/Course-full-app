@@ -8,7 +8,7 @@
       <Page :data = "courseList"/>
       </div>
         <div class="flex items-center justify-center ">
-      <div class = " bg-gray-200  md:w-4/6 " >
+      <div class = " bg-gray-100  md:w-4/6 " >
       <div class="py-1 " v-for="(course, key) in courseList.data" :key="key">
         <div class="px-2 bg-white rounded shadow p-4 m-2" >
           <div class="text-sm text-gray-400">

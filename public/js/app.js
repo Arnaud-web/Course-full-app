@@ -5580,6 +5580,17 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
@@ -5609,8 +5620,8 @@ __webpack_require__.r(__webpack_exports__);
         video_url: null
       });
     },
-    remove: function remove() {
-      this.form.episodes.pop();
+    remove: function remove(index) {
+      this.form.episodes.splice(index, 1);
     }
   }
 });
@@ -5812,6 +5823,36 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
@@ -5827,6 +5868,9 @@ __webpack_require__.r(__webpack_exports__);
     submit: function submit() {
       this.$inertia.patch("/courses/" + this.courseData.id, this.courseData);
     },
+    deleteFormation: function deleteFormation() {
+      this.$inertia["delete"]("/courses/" + this.courseData.id, this.courseData);
+    },
     add: function add() {
       this.courseData.episodes.push({
         title: null,
@@ -5834,8 +5878,8 @@ __webpack_require__.r(__webpack_exports__);
         video_url: null
       });
     },
-    remove: function remove() {
-      this.courseData.episodes.pop();
+    remove: function remove(index) {
+      this.courseData.episodes.splice(index, 1);
     }
   }
 });
@@ -6088,6 +6132,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Layouts_AppLayout__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/Layouts/AppLayout */ "./resources/js/Layouts/AppLayout.vue");
 /* harmony import */ var _ProgressButton_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ProgressButton.vue */ "./resources/js/Pages/Courses/ProgressButton.vue");
 /* harmony import */ var _ProgressBar_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ProgressBar.vue */ "./resources/js/Pages/Courses/ProgressBar.vue");
+//
+//
+//
+//
+//
 //
 //
 //
@@ -27400,24 +27449,6 @@ var render = function() {
                     "jet-nav-link",
                     {
                       attrs: {
-                        href: _vm.route("dashboard"),
-                        active: _vm.route().current("dashboard")
-                      }
-                    },
-                    [_vm._v("\n              Dashboard\n            ")]
-                  )
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c(
-                "div",
-                { staticClass: "hidden space-x-8 sm:-my-px sm:ml-10 sm:flex" },
-                [
-                  _c(
-                    "jet-nav-link",
-                    {
-                      attrs: {
                         href: "/courses",
                         active: _vm.$page.currentRouteName === "courses.index"
                       }
@@ -27446,6 +27477,24 @@ var render = function() {
                 1
               )
             ]),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "hidden space-x-8 sm:-my-px sm:ml-10 sm:flex" },
+              [
+                _c(
+                  "jet-nav-link",
+                  {
+                    attrs: {
+                      href: _vm.route("dashboard"),
+                      active: _vm.route().current("dashboard")
+                    }
+                  },
+                  [_vm._v("\n              About\n            ")]
+                )
+              ],
+              1
+            ),
             _vm._v(" "),
             _c(
               "div",
@@ -28818,7 +28867,7 @@ var render = function() {
               _vm._v(" "),
               _c(
                 "div",
-                { staticClass: "pt-10 mt-5 md:mt-0 md:col-span-2 mr-6" },
+                { staticClass: "pt-10 mt-5 md:mt-0 md:col-span-2 mr-6 " },
                 [
                   _c(
                     "form",
@@ -28840,7 +28889,8 @@ var render = function() {
                           _c(
                             "div",
                             {
-                              staticClass: "px-4 py-5 bg-white space-y-6 sm:p-2"
+                              staticClass:
+                                "px-4 py-5 bg-gray-400 space-y-6 sm:p-2 border-4 border-opacity-25 border-green-500 "
                             },
                             [
                               _c("div", [
@@ -28856,7 +28906,7 @@ var render = function() {
                                         },
                                         [
                                           _vm._v(
-                                            "\n                      Titre\n                    "
+                                            "\n                      Titre de la formation\n                    "
                                           )
                                         ]
                                       ),
@@ -28891,7 +28941,7 @@ var render = function() {
                                               }
                                             ],
                                             staticClass:
-                                              "focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-none rounded-r-md sm:text-sm border-gray-300",
+                                              "focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-none rounded-r-md sm:text-sm border-gray-700",
                                             attrs: {
                                               type: "text",
                                               name: "company_website",
@@ -29300,58 +29350,71 @@ var render = function() {
                                                     ]
                                                   )
                                                 ])
-                                              ])
+                                              ]),
+                                              _vm._v(" "),
+                                              _c(
+                                                "div",
+                                                {
+                                                  staticClass:
+                                                    "text-right sm:px-6"
+                                                },
+                                                [
+                                                  index > 0
+                                                    ? _c(
+                                                        "button",
+                                                        {
+                                                          staticClass:
+                                                            "bg-red-600 rounded py-2 px-4 text-white",
+                                                          on: {
+                                                            click: function(
+                                                              $event
+                                                            ) {
+                                                              $event.preventDefault()
+                                                              return _vm.remove(
+                                                                index
+                                                              )
+                                                            }
+                                                          }
+                                                        },
+                                                        [
+                                                          _vm._v(
+                                                            "\n                  🗑️\n                "
+                                                          )
+                                                        ]
+                                                      )
+                                                    : _vm._e()
+                                                ]
+                                              )
                                             ]
                                           )
                                         })
                                       ],
                                       2
-                                    )
+                                    ),
+                                    _vm._v(" "),
+                                    _vm.form.episodes.length < 15
+                                      ? _c(
+                                          "button",
+                                          {
+                                            staticClass:
+                                              "bg-green-600 rounded py-2 px-4 text-white",
+                                            on: {
+                                              click: function($event) {
+                                                $event.preventDefault()
+                                                return _vm.add($event)
+                                              }
+                                            }
+                                          },
+                                          [
+                                            _vm._v(
+                                              "\n                  +\n                "
+                                            )
+                                          ]
+                                        )
+                                      : _vm._e()
                                   ]
                                 )
-                              ]),
-                              _vm._v(" "),
-                              _vm.form.episodes.length < 15
-                                ? _c(
-                                    "button",
-                                    {
-                                      staticClass:
-                                        "bg-green-600 rounded py-2 px-4 text-white",
-                                      on: {
-                                        click: function($event) {
-                                          $event.preventDefault()
-                                          return _vm.add($event)
-                                        }
-                                      }
-                                    },
-                                    [
-                                      _vm._v(
-                                        "\n                  +\n                "
-                                      )
-                                    ]
-                                  )
-                                : _vm._e(),
-                              _vm._v(" "),
-                              _vm.form.episodes.length > 1
-                                ? _c(
-                                    "button",
-                                    {
-                                      staticClass:
-                                        "bg-red-600 rounded py-2 px-4 text-white",
-                                      on: {
-                                        click: function($event) {
-                                          $event.preventDefault()
-                                          return _vm.remove($event)
-                                        }
-                                      }
-                                    },
-                                    [
-                                      _vm._v(
-                                        "\n                  🗑️\n                "
-                                      )
-                                    ]
-                                  )
-                                : _vm._e()
+                              ])
                             ]
                           ),
                           _vm._v(" "),
@@ -29421,7 +29484,7 @@ var render = function() {
         "AppLayout",
         [
           _c("template", { slot: "header" }, [
-            _c("p", [_vm._v("Modification de " + _vm._s(_vm.courseData.title))])
+            _c("p", [_vm._v("Modification de la  formation")])
           ]),
           _vm._v(" "),
           _c("div", [
@@ -29435,7 +29498,7 @@ var render = function() {
                     },
                     [
                       _vm._v(
-                        "\n              Creation de la formation\n            "
+                        "\n              Modification de la formation\n            "
                       )
                     ]
                   ),
@@ -29462,91 +29525,147 @@ var render = function() {
                 ])
               ]),
               _vm._v(" "),
-              _c("div", { staticClass: "pt-10 mt-5 md:mt-0 md:col-span-2" }, [
-                _c(
-                  "form",
-                  {
-                    on: {
-                      submit: function($event) {
-                        $event.preventDefault()
-                        return _vm.submit($event)
+              _c(
+                "div",
+                { staticClass: "pt-10 mt-5 md:mt-0 md:col-span-2 mr-6 " },
+                [
+                  _c(
+                    "form",
+                    {
+                      on: {
+                        submit: function($event) {
+                          $event.preventDefault()
+                          return _vm.submit($event)
+                        }
                       }
-                    }
-                  },
-                  [
-                    _c(
-                      "div",
-                      {
-                        staticClass: "shadow sm:rounded-md sm:overflow-hidden"
-                      },
-                      [
-                        _c(
-                          "div",
-                          {
-                            staticClass: "px-4 py-5 bg-white space-y-6 sm:p-6"
-                          },
-                          [
-                            _c(
-                              "div",
-                              { staticClass: "grid grid-cols-3 gap-6" },
-                              [
-                                _c(
-                                  "div",
-                                  { staticClass: "col-span-3 sm:col-span-2" },
-                                  [
-                                    _c(
-                                      "label",
-                                      {
-                                        staticClass:
-                                          "block text-sm font-medium text-gray-700",
-                                        attrs: { for: "company_website" }
-                                      },
-                                      [
-                                        _vm._v(
-                                          "\n                      Titre\n                    "
-                                        )
-                                      ]
-                                    ),
-                                    _vm._v(" "),
-                                    _c(
-                                      "div",
-                                      {
-                                        staticClass:
-                                          "mt-1 flex rounded-md shadow-sm"
-                                      },
-                                      [
-                                        _c(
-                                          "span",
-                                          {
+                    },
+                    [
+                      _c(
+                        "div",
+                        {
+                          staticClass: "shadow sm:rounded-md sm:overflow-hidden"
+                        },
+                        [
+                          _c(
+                            "div",
+                            {
+                              staticClass:
+                                "px-4 py-5 bg-gray-400 space-y-6 sm:p-2 border-4 border-opacity-25 border-green-500 "
+                            },
+                            [
+                              _c("div", [
+                                _c("div", { staticClass: "bg-gray-200 p-2" }, [
+                                  _c("div", [
+                                    _c("div", { staticClass: " " }, [
+                                      _c(
+                                        "label",
+                                        {
+                                          staticClass:
+                                            "block text-sm font-medium text-gray-700",
+                                          attrs: { for: "company_website" }
+                                        },
+                                        [
+                                          _vm._v(
+                                            "\n                      Titre de la formation\n                    "
+                                          )
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "div",
+                                        {
+                                          staticClass:
+                                            "mt-1 flex rounded-md shadow-sm"
+                                        },
+                                        [
+                                          _c(
+                                            "span",
+                                            {
+                                              staticClass:
+                                                "inline-flex items-center px-3 rounded-l-md border border-r-0 border-gray-300 bg-gray-50 text-gray-500 text-sm"
+                                            },
+                                            [
+                                              _vm._v(
+                                                "\n                        titre :\n                      "
+                                              )
+                                            ]
+                                          ),
+                                          _vm._v(" "),
+                                          _c("input", {
+                                            directives: [
+                                              {
+                                                name: "model",
+                                                rawName: "v-model",
+                                                value: _vm.courseData.title,
+                                                expression: "courseData.title"
+                                              }
+                                            ],
                                             staticClass:
-                                              "inline-flex items-center px-3 rounded-l-md border border-r-0 border-gray-300 bg-gray-50 text-gray-500 text-sm"
-                                          },
-                                          [
-                                            _vm._v(
-                                              "\n                        titre :\n                      "
-                                            )
-                                          ]
-                                        ),
-                                        _vm._v(" "),
-                                        _c("input", {
+                                              "focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-none rounded-r-md sm:text-sm border-gray-700",
+                                            attrs: {
+                                              type: "text",
+                                              name: "company_website",
+                                              id: "company_website",
+                                              placeholder: "title"
+                                            },
+                                            domProps: {
+                                              value: _vm.courseData.title
+                                            },
+                                            on: {
+                                              input: function($event) {
+                                                if ($event.target.composing) {
+                                                  return
+                                                }
+                                                _vm.$set(
+                                                  _vm.courseData,
+                                                  "title",
+                                                  $event.target.value
+                                                )
+                                              }
+                                            }
+                                          })
+                                        ]
+                                      )
+                                    ])
+                                  ]),
+                                  _vm._v(" "),
+                                  _c("div", [
+                                    _c("div", [
+                                      _c(
+                                        "label",
+                                        {
+                                          staticClass:
+                                            "block text-sm font-medium text-gray-700",
+                                          attrs: { for: "about" }
+                                        },
+                                        [
+                                          _vm._v(
+                                            "\n                    Description\n                  "
+                                          )
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c("div", { staticClass: "mt-1" }, [
+                                        _c("textarea", {
                                           directives: [
                                             {
                                               name: "model",
                                               rawName: "v-model",
-                                              value: _vm.courseData.title,
-                                              expression: "courseData.title"
+                                              value: _vm.courseData.description,
+                                              expression:
+                                                "courseData.description"
                                             }
                                           ],
                                           staticClass:
-                                            "focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-none rounded-r-md sm:text-sm border-gray-300",
+                                            "shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border-gray-300 rounded-md",
                                           attrs: {
-                                            type: "text",
-                                            name: "company_website",
-                                            id: "company_website",
-                                            placeholder: "title"
+                                            id: "about",
+                                            name: "about",
+                                            rows: "3",
+                                            placeholder: "desc"
                                           },
                                           domProps: {
-                                            value: _vm.courseData.title
+                                            value: _vm.courseData.description
                                           },
                                           on: {
                                             input: function($event) {
@@ -29555,431 +29674,477 @@ var render = function() {
                                               }
                                               _vm.$set(
                                                 _vm.courseData,
-                                                "title",
+                                                "description",
                                                 $event.target.value
                                               )
                                             }
                                           }
                                         })
+                                      ]),
+                                      _vm._v(" "),
+                                      _c(
+                                        "p",
+                                        {
+                                          staticClass:
+                                            "mt-2 text-sm text-gray-500"
+                                        },
+                                        [
+                                          _vm._v(
+                                            "\n                    description de la formation\n                  "
+                                          )
+                                        ]
+                                      )
+                                    ]),
+                                    _vm._v(" "),
+                                    _c(
+                                      "div",
+                                      { staticClass: "text-right sm:px-6" },
+                                      [
+                                        _c(
+                                          "button",
+                                          {
+                                            staticClass:
+                                              "bg-red-600 rounded py-2 px-4 text-white",
+                                            on: {
+                                              click: function($event) {
+                                                $event.preventDefault()
+                                                return _vm.deleteFormation()
+                                              }
+                                            }
+                                          },
+                                          [
+                                            _vm._v(
+                                              "\n                  🗑️\n                "
+                                            )
+                                          ]
+                                        )
                                       ]
                                     )
+                                  ])
+                                ]),
+                                _vm._v(" "),
+                                _c(
+                                  "div",
+                                  { staticClass: "bg-gray-300 m-2 p-4" },
+                                  [
+                                    _c(
+                                      "div",
+                                      { staticClass: "mb-5" },
+                                      [
+                                        _c("h2", { staticClass: "text-2xl " }, [
+                                          _vm._v("Episodes de la formation")
+                                        ]),
+                                        _vm._v(" "),
+                                        _vm._l(
+                                          _vm.courseData.episodes,
+                                          function(episode, index) {
+                                            return _c(
+                                              "div",
+                                              {
+                                                key: index,
+                                                staticClass:
+                                                  "p-2 m-1 bg-gray-200 border-4 border-opacity-25 border-green-500"
+                                              },
+                                              [
+                                                _c("div", {}, [
+                                                  _c("h2", [
+                                                    _vm._v(
+                                                      " Episode " +
+                                                        _vm._s(index + 1) +
+                                                        " "
+                                                    )
+                                                  ]),
+                                                  _vm._v(" "),
+                                                  _c("div", {}, [
+                                                    _c(
+                                                      "label",
+                                                      {
+                                                        staticClass:
+                                                          "block text-sm font-medium text-gray-700",
+                                                        attrs: {
+                                                          for: "title-" + index
+                                                        }
+                                                      },
+                                                      [
+                                                        _vm._v(
+                                                          "\n                            Titre de l'épisode N* " +
+                                                            _vm._s(index + 1) +
+                                                            "\n                          "
+                                                        )
+                                                      ]
+                                                    ),
+                                                    _vm._v(" "),
+                                                    _c(
+                                                      "div",
+                                                      {
+                                                        staticClass:
+                                                          "mt-1 flex rounded-md shadow-sm"
+                                                      },
+                                                      [
+                                                        _c(
+                                                          "span",
+                                                          {
+                                                            staticClass:
+                                                              "inline-flex items-center px-3 rounded-l-md border border-r-0 border-gray-300 bg-gray-50 text-gray-500 text-sm"
+                                                          },
+                                                          [
+                                                            _vm._v(
+                                                              "\n                              titre :\n                            "
+                                                            )
+                                                          ]
+                                                        ),
+                                                        _vm._v(" "),
+                                                        _c("input", {
+                                                          directives: [
+                                                            {
+                                                              name: "model",
+                                                              rawName:
+                                                                "v-model",
+                                                              value:
+                                                                _vm.courseData
+                                                                  .episodes[
+                                                                  index
+                                                                ].title,
+                                                              expression:
+                                                                "courseData.episodes[index].title"
+                                                            }
+                                                          ],
+                                                          staticClass:
+                                                            "focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-none rounded-r-md sm:text-sm border-gray-300",
+                                                          attrs: {
+                                                            type: "text",
+                                                            name:
+                                                              "company_website",
+                                                            id:
+                                                              "title-" + index,
+                                                            placeholder: "title"
+                                                          },
+                                                          domProps: {
+                                                            value:
+                                                              _vm.courseData
+                                                                .episodes[index]
+                                                                .title
+                                                          },
+                                                          on: {
+                                                            input: function(
+                                                              $event
+                                                            ) {
+                                                              if (
+                                                                $event.target
+                                                                  .composing
+                                                              ) {
+                                                                return
+                                                              }
+                                                              _vm.$set(
+                                                                _vm.courseData
+                                                                  .episodes[
+                                                                  index
+                                                                ],
+                                                                "title",
+                                                                $event.target
+                                                                  .value
+                                                              )
+                                                            }
+                                                          }
+                                                        })
+                                                      ]
+                                                    )
+                                                  ]),
+                                                  _vm._v(" "),
+                                                  _c("div", {}, [
+                                                    _c(
+                                                      "label",
+                                                      {
+                                                        staticClass:
+                                                          "block text-sm font-medium text-gray-700",
+                                                        attrs: {
+                                                          for:
+                                                            "description-" +
+                                                            index
+                                                        }
+                                                      },
+                                                      [
+                                                        _vm._v(
+                                                          "\n                            Description de l'épisode N* " +
+                                                            _vm._s(index + 1) +
+                                                            "\n                          "
+                                                        )
+                                                      ]
+                                                    ),
+                                                    _vm._v(" "),
+                                                    _c(
+                                                      "div",
+                                                      {
+                                                        staticClass:
+                                                          "mt-1 flex rounded-md shadow-sm"
+                                                      },
+                                                      [
+                                                        _c(
+                                                          "span",
+                                                          {
+                                                            staticClass:
+                                                              "inline-flex items-center px-3 rounded-l-md border border-r-0 border-gray-300 bg-gray-50 text-gray-500 text-sm"
+                                                          },
+                                                          [
+                                                            _vm._v(
+                                                              "\n                              desc :\n                            "
+                                                            )
+                                                          ]
+                                                        ),
+                                                        _vm._v(" "),
+                                                        _c("textarea", {
+                                                          directives: [
+                                                            {
+                                                              name: "model",
+                                                              rawName:
+                                                                "v-model",
+                                                              value:
+                                                                _vm.courseData
+                                                                  .episodes[
+                                                                  index
+                                                                ].description,
+                                                              expression:
+                                                                "courseData.episodes[index].description"
+                                                            }
+                                                          ],
+                                                          staticClass:
+                                                            "focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-none rounded-r-md sm:text-sm border-gray-300",
+                                                          attrs: {
+                                                            name:
+                                                              "company_website",
+                                                            id:
+                                                              "description-" +
+                                                              index,
+                                                            placeholder:
+                                                              "description de l'épi..."
+                                                          },
+                                                          domProps: {
+                                                            value:
+                                                              _vm.courseData
+                                                                .episodes[index]
+                                                                .description
+                                                          },
+                                                          on: {
+                                                            input: function(
+                                                              $event
+                                                            ) {
+                                                              if (
+                                                                $event.target
+                                                                  .composing
+                                                              ) {
+                                                                return
+                                                              }
+                                                              _vm.$set(
+                                                                _vm.courseData
+                                                                  .episodes[
+                                                                  index
+                                                                ],
+                                                                "description",
+                                                                $event.target
+                                                                  .value
+                                                              )
+                                                            }
+                                                          }
+                                                        })
+                                                      ]
+                                                    )
+                                                  ]),
+                                                  _vm._v(" "),
+                                                  _c("div", {}, [
+                                                    _c(
+                                                      "label",
+                                                      {
+                                                        staticClass:
+                                                          "block text-sm font-medium text-gray-700",
+                                                        attrs: {
+                                                          for:
+                                                            "video_url-" + index
+                                                        }
+                                                      },
+                                                      [
+                                                        _vm._v(
+                                                          "\n                            URL de la video de l'épisode N* " +
+                                                            _vm._s(index + 1) +
+                                                            "\n                          "
+                                                        )
+                                                      ]
+                                                    ),
+                                                    _vm._v(" "),
+                                                    _c(
+                                                      "div",
+                                                      {
+                                                        staticClass:
+                                                          "mt-1 flex rounded-md shadow-sm"
+                                                      },
+                                                      [
+                                                        _c(
+                                                          "span",
+                                                          {
+                                                            staticClass:
+                                                              "inline-flex items-center px-3 rounded-l-md border border-r-0 border-gray-300 bg-gray-50 text-gray-500 text-sm"
+                                                          },
+                                                          [
+                                                            _vm._v(
+                                                              "\n                              http:// :\n                            "
+                                                            )
+                                                          ]
+                                                        ),
+                                                        _vm._v(" "),
+                                                        _c("input", {
+                                                          directives: [
+                                                            {
+                                                              name: "model",
+                                                              rawName:
+                                                                "v-model",
+                                                              value:
+                                                                _vm.courseData
+                                                                  .episodes[
+                                                                  index
+                                                                ].video_url,
+                                                              expression:
+                                                                "courseData.episodes[index].video_url"
+                                                            }
+                                                          ],
+                                                          staticClass:
+                                                            "focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-none rounded-r-md sm:text-sm border-gray-300",
+                                                          attrs: {
+                                                            type: "text",
+                                                            name:
+                                                              "company_website",
+                                                            id:
+                                                              "video_url-" +
+                                                              index,
+                                                            placeholder:
+                                                              "www.example.com"
+                                                          },
+                                                          domProps: {
+                                                            value:
+                                                              _vm.courseData
+                                                                .episodes[index]
+                                                                .video_url
+                                                          },
+                                                          on: {
+                                                            input: function(
+                                                              $event
+                                                            ) {
+                                                              if (
+                                                                $event.target
+                                                                  .composing
+                                                              ) {
+                                                                return
+                                                              }
+                                                              _vm.$set(
+                                                                _vm.courseData
+                                                                  .episodes[
+                                                                  index
+                                                                ],
+                                                                "video_url",
+                                                                $event.target
+                                                                  .value
+                                                              )
+                                                            }
+                                                          }
+                                                        })
+                                                      ]
+                                                    )
+                                                  ])
+                                                ]),
+                                                _vm._v(" "),
+                                                _c(
+                                                  "div",
+                                                  {
+                                                    staticClass:
+                                                      "text-right sm:px-6"
+                                                  },
+                                                  [
+                                                    index > 0
+                                                      ? _c(
+                                                          "button",
+                                                          {
+                                                            staticClass:
+                                                              "bg-red-600 rounded py-2 px-4 text-white",
+                                                            on: {
+                                                              click: function(
+                                                                $event
+                                                              ) {
+                                                                $event.preventDefault()
+                                                                return _vm.remove(
+                                                                  index
+                                                                )
+                                                              }
+                                                            }
+                                                          },
+                                                          [
+                                                            _vm._v(
+                                                              "\n                  🗑️\n                "
+                                                            )
+                                                          ]
+                                                        )
+                                                      : _vm._e()
+                                                  ]
+                                                )
+                                              ]
+                                            )
+                                          }
+                                        )
+                                      ],
+                                      2
+                                    ),
+                                    _vm._v(" "),
+                                    _vm.courseData.episodes.length < 15
+                                      ? _c(
+                                          "button",
+                                          {
+                                            staticClass:
+                                              "bg-green-600 rounded py-2 px-4 text-white",
+                                            on: {
+                                              click: function($event) {
+                                                $event.preventDefault()
+                                                return _vm.add($event)
+                                              }
+                                            }
+                                          },
+                                          [
+                                            _vm._v(
+                                              "\n                  +\n                "
+                                            )
+                                          ]
+                                        )
+                                      : _vm._e()
                                   ]
                                 )
-                              ]
-                            ),
-                            _vm._v(" "),
-                            _c("div", [
+                              ])
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "div",
+                            {
+                              staticClass:
+                                "px-4 py-3 bg-gray-50 text-right sm:px-6"
+                            },
+                            [
                               _c(
-                                "label",
+                                "button",
                                 {
                                   staticClass:
-                                    "block text-sm font-medium text-gray-700",
-                                  attrs: { for: "about" }
+                                    "inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500",
+                                  attrs: { type: "submit" }
                                 },
                                 [
                                   _vm._v(
-                                    "\n                    Description\n                  "
+                                    "\n                  Save\n                "
                                   )
                                 ]
-                              ),
-                              _vm._v(" "),
-                              _c("div", { staticClass: "mt-1" }, [
-                                _c("textarea", {
-                                  directives: [
-                                    {
-                                      name: "model",
-                                      rawName: "v-model",
-                                      value: _vm.courseData.description,
-                                      expression: "courseData.description"
-                                    }
-                                  ],
-                                  staticClass:
-                                    "shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border-gray-300 rounded-md",
-                                  attrs: {
-                                    id: "about",
-                                    name: "about",
-                                    rows: "3",
-                                    placeholder: "descr"
-                                  },
-                                  domProps: {
-                                    value: _vm.courseData.description
-                                  },
-                                  on: {
-                                    input: function($event) {
-                                      if ($event.target.composing) {
-                                        return
-                                      }
-                                      _vm.$set(
-                                        _vm.courseData,
-                                        "description",
-                                        $event.target.value
-                                      )
-                                    }
-                                  }
-                                })
-                              ]),
-                              _vm._v(" "),
-                              _c(
-                                "p",
-                                { staticClass: "mt-2 text-sm text-gray-500" },
-                                [
-                                  _vm._v(
-                                    "\n                    description de la formation\n                  "
-                                  )
-                                ]
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "div",
-                                { staticClass: "mb-5" },
-                                [
-                                  _c("h2", { staticClass: "text-2xl" }, [
-                                    _vm._v("Episodes de la formation")
-                                  ]),
-                                  _vm._v(" "),
-                                  _vm._l(_vm.courseData.episodes, function(
-                                    episode,
-                                    index
-                                  ) {
-                                    return _c("div", { key: index }, [
-                                      _c("div", {}, [
-                                        _c("div", {}, [
-                                          _c(
-                                            "label",
-                                            {
-                                              staticClass:
-                                                "block text-sm font-medium text-gray-700",
-                                              attrs: { for: "title-" + index }
-                                            },
-                                            [
-                                              _vm._v(
-                                                "\n                            Titre de l'épisode N* " +
-                                                  _vm._s(index + 1) +
-                                                  "\n                          "
-                                              )
-                                            ]
-                                          ),
-                                          _vm._v(" "),
-                                          _c(
-                                            "div",
-                                            {
-                                              staticClass:
-                                                "mt-1 flex rounded-md shadow-sm"
-                                            },
-                                            [
-                                              _c(
-                                                "span",
-                                                {
-                                                  staticClass:
-                                                    "inline-flex items-center px-3 rounded-l-md border border-r-0 border-gray-300 bg-gray-50 text-gray-500 text-sm"
-                                                },
-                                                [
-                                                  _vm._v(
-                                                    "\n                              titre :\n                            "
-                                                  )
-                                                ]
-                                              ),
-                                              _vm._v(" "),
-                                              _c("input", {
-                                                directives: [
-                                                  {
-                                                    name: "model",
-                                                    rawName: "v-model",
-                                                    value:
-                                                      _vm.courseData.episodes[
-                                                        index
-                                                      ].title,
-                                                    expression:
-                                                      "courseData.episodes[index].title"
-                                                  }
-                                                ],
-                                                staticClass:
-                                                  "focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-none rounded-r-md sm:text-sm border-gray-300",
-                                                attrs: {
-                                                  type: "text",
-                                                  name: "company_website",
-                                                  id: "title-" + index,
-                                                  placeholder: "title"
-                                                },
-                                                domProps: {
-                                                  value:
-                                                    _vm.courseData.episodes[
-                                                      index
-                                                    ].title
-                                                },
-                                                on: {
-                                                  input: function($event) {
-                                                    if (
-                                                      $event.target.composing
-                                                    ) {
-                                                      return
-                                                    }
-                                                    _vm.$set(
-                                                      _vm.courseData.episodes[
-                                                        index
-                                                      ],
-                                                      "title",
-                                                      $event.target.value
-                                                    )
-                                                  }
-                                                }
-                                              })
-                                            ]
-                                          )
-                                        ]),
-                                        _vm._v(" "),
-                                        _c("div", {}, [
-                                          _c(
-                                            "label",
-                                            {
-                                              staticClass:
-                                                "block text-sm font-medium text-gray-700",
-                                              attrs: {
-                                                for: "description-" + index
-                                              }
-                                            },
-                                            [
-                                              _vm._v(
-                                                "\n                            Description de l'épisode N* " +
-                                                  _vm._s(index + 1) +
-                                                  "\n                          "
-                                              )
-                                            ]
-                                          ),
-                                          _vm._v(" "),
-                                          _c(
-                                            "div",
-                                            {
-                                              staticClass:
-                                                "mt-1 flex rounded-md shadow-sm"
-                                            },
-                                            [
-                                              _c(
-                                                "span",
-                                                {
-                                                  staticClass:
-                                                    "inline-flex items-center px-3 rounded-l-md border border-r-0 border-gray-300 bg-gray-50 text-gray-500 text-sm"
-                                                },
-                                                [
-                                                  _vm._v(
-                                                    "\n                              desc :\n                            "
-                                                  )
-                                                ]
-                                              ),
-                                              _vm._v(" "),
-                                              _c("textarea", {
-                                                directives: [
-                                                  {
-                                                    name: "model",
-                                                    rawName: "v-model",
-                                                    value:
-                                                      _vm.courseData.episodes[
-                                                        index
-                                                      ].description,
-                                                    expression:
-                                                      "courseData.episodes[index].description"
-                                                  }
-                                                ],
-                                                staticClass:
-                                                  "focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-none rounded-r-md sm:text-sm border-gray-300",
-                                                attrs: {
-                                                  name: "company_website",
-                                                  id: "description-" + index,
-                                                  placeholder:
-                                                    "description de l'épi..."
-                                                },
-                                                domProps: {
-                                                  value:
-                                                    _vm.courseData.episodes[
-                                                      index
-                                                    ].description
-                                                },
-                                                on: {
-                                                  input: function($event) {
-                                                    if (
-                                                      $event.target.composing
-                                                    ) {
-                                                      return
-                                                    }
-                                                    _vm.$set(
-                                                      _vm.courseData.episodes[
-                                                        index
-                                                      ],
-                                                      "description",
-                                                      $event.target.value
-                                                    )
-                                                  }
-                                                }
-                                              })
-                                            ]
-                                          )
-                                        ]),
-                                        _vm._v(" "),
-                                        _c("div", {}, [
-                                          _c(
-                                            "label",
-                                            {
-                                              staticClass:
-                                                "block text-sm font-medium text-gray-700",
-                                              attrs: {
-                                                for: "video_url-" + index
-                                              }
-                                            },
-                                            [
-                                              _vm._v(
-                                                "\n                            URL de la video de l'épisode N* " +
-                                                  _vm._s(index + 1) +
-                                                  "\n                          "
-                                              )
-                                            ]
-                                          ),
-                                          _vm._v(" "),
-                                          _c(
-                                            "div",
-                                            {
-                                              staticClass:
-                                                "mt-1 flex rounded-md shadow-sm"
-                                            },
-                                            [
-                                              _c(
-                                                "span",
-                                                {
-                                                  staticClass:
-                                                    "inline-flex items-center px-3 rounded-l-md border border-r-0 border-gray-300 bg-gray-50 text-gray-500 text-sm"
-                                                },
-                                                [
-                                                  _vm._v(
-                                                    "\n                              http:// :\n                            "
-                                                  )
-                                                ]
-                                              ),
-                                              _vm._v(" "),
-                                              _c("input", {
-                                                directives: [
-                                                  {
-                                                    name: "model",
-                                                    rawName: "v-model",
-                                                    value:
-                                                      _vm.courseData.episodes[
-                                                        index
-                                                      ].video_url,
-                                                    expression:
-                                                      "courseData.episodes[index].video_url"
-                                                  }
-                                                ],
-                                                staticClass:
-                                                  "focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-none rounded-r-md sm:text-sm border-gray-300",
-                                                attrs: {
-                                                  type: "text",
-                                                  name: "company_website",
-                                                  id: "video_url-" + index,
-                                                  placeholder: "www.example.com"
-                                                },
-                                                domProps: {
-                                                  value:
-                                                    _vm.courseData.episodes[
-                                                      index
-                                                    ].video_url
-                                                },
-                                                on: {
-                                                  input: function($event) {
-                                                    if (
-                                                      $event.target.composing
-                                                    ) {
-                                                      return
-                                                    }
-                                                    _vm.$set(
-                                                      _vm.courseData.episodes[
-                                                        index
-                                                      ],
-                                                      "video_url",
-                                                      $event.target.value
-                                                    )
-                                                  }
-                                                }
-                                              })
-                                            ]
-                                          )
-                                        ])
-                                      ])
-                                    ])
-                                  })
-                                ],
-                                2
                               )
-                            ]),
-                            _vm._v(" "),
-                            _vm.courseData.episodes.length < 15
-                              ? _c(
-                                  "button",
-                                  {
-                                    staticClass:
-                                      "bg-green-600 rounded py-2 px-4 text-white",
-                                    on: {
-                                      click: function($event) {
-                                        $event.preventDefault()
-                                        return _vm.add($event)
-                                      }
-                                    }
-                                  },
-                                  [
-                                    _vm._v(
-                                      "\n                  +\n                "
-                                    )
-                                  ]
-                                )
-                              : _vm._e(),
-                            _vm._v(" "),
-                            _vm.courseData.episodes.length > 1
-                              ? _c(
-                                  "button",
-                                  {
-                                    staticClass:
-                                      "bg-red-600 rounded py-2 px-4 text-white",
-                                    on: {
-                                      click: function($event) {
-                                        $event.preventDefault()
-                                        return _vm.remove($event)
-                                      }
-                                    }
-                                  },
-                                  [
-                                    _vm._v(
-                                      "\n                  🗑️\n                "
-                                    )
-                                  ]
-                                )
-                              : _vm._e()
-                          ]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "div",
-                          {
-                            staticClass:
-                              "px-4 py-3 bg-gray-50 text-right sm:px-6"
-                          },
-                          [
-                            _c(
-                              "button",
-                              {
-                                staticClass:
-                                  "inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500",
-                                attrs: { type: "submit" }
-                              },
-                              [
-                                _vm._v(
-                                  "\n                  Modifier ma formation\n                "
-                                )
-                              ]
-                            )
-                          ]
-                        )
-                      ]
-                    )
-                  ]
-                )
-              ])
+                            ]
+                          )
+                        ]
+                      )
+                    ]
+                  )
+                ]
+              )
             ])
           ])
         ],
@@ -30031,7 +30196,7 @@ var render = function() {
           _c("div", { staticClass: "flex items-center justify-center " }, [
             _c(
               "div",
-              { staticClass: " bg-gray-200  md:w-4/6 " },
+              { staticClass: " bg-gray-100  md:w-4/6 " },
               _vm._l(_vm.courseList.data, function(course, key) {
                 return _c("div", { key: key, staticClass: "py-1 " }, [
                   _c(
@@ -30329,103 +30494,112 @@ var render = function() {
             _c("p", [_vm._v(_vm._s(_vm.course.title))])
           ]),
           _vm._v(" "),
-          _c("div", { staticClass: "py-4 mx-15" }, [
-            _c("div", { staticClass: "text-sm text-gray-500" }, [
-              _c("h3", [_vm._v("Episode N* " + _vm._s(_vm.currentKey + 1))]),
-              _vm._v(" "),
-              _c("h2", [
-                _vm._v(_vm._s(_vm.course.episodes[_vm.currentKey].title))
-              ]),
-              _vm._v(" "),
-              _c("p", [
-                _vm._v(
-                  "lien : " +
-                    _vm._s(_vm.course.episodes[_vm.currentKey].video_url)
+          _c("div", { staticClass: "flex items-center justify-center " }, [
+            _c("div", { staticClass: " bg-white mt-4 md:w-4/6 " }, [
+              _c("div", { staticClass: "py-4 mx-15" }, [
+                _c("div", { staticClass: "text-sm text-gray-500" }, [
+                  _c("h3", [
+                    _vm._v("Episode N* " + _vm._s(_vm.currentKey + 1))
+                  ]),
+                  _vm._v(" "),
+                  _c("h2", [
+                    _vm._v(_vm._s(_vm.course.episodes[_vm.currentKey].title))
+                  ]),
+                  _vm._v(" "),
+                  _c("p", [
+                    _vm._v(
+                      "lien : " +
+                        _vm._s(_vm.course.episodes[_vm.currentKey].video_url)
+                    )
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("iframe", {
+                  staticClass: "w-full h-screen",
+                  attrs: {
+                    src: _vm.course.episodes[_vm.currentKey].video_url,
+                    frameborder: "0",
+                    allow:
+                      "accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture",
+                    allowfullscreen: ""
+                  }
+                }),
+                _vm._v(" "),
+                _c("div", { staticClass: "text-sm text-gray-500" }, [
+                  _vm._v(
+                    "\n        " +
+                      _vm._s(_vm.course.episodes[_vm.currentKey].description) +
+                      "\n      "
+                  )
+                ]),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "py-6" },
+                  [
+                    _c("progress-bar", {
+                      attrs: {
+                        watchedEpisodes: _vm.watched,
+                        episodes: _vm.course.episodes
+                      }
+                    })
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "mtma-10" },
+                  _vm._l(_vm.course.episodes, function(episode, index) {
+                    return _c("ul", { key: episode.id }, [
+                      _c(
+                        "li",
+                        {
+                          staticClass: "mt-2 flex justify-between items-center"
+                        },
+                        [
+                          _c("div", [
+                            _vm._v(
+                              "\n              Episode N* " +
+                                _vm._s(index + 1) +
+                                " - " +
+                                _vm._s(episode.title) +
+                                "\n              "
+                            ),
+                            _c(
+                              "button",
+                              {
+                                staticClass:
+                                  "text-gray-500 focus:text-green-500",
+                                on: {
+                                  click: function($event) {
+                                    return _vm.switchEpisode(index)
+                                  }
+                                }
+                              },
+                              [
+                                _vm._v(
+                                  "\n                Voir l'épisode\n              "
+                                )
+                              ]
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("ProgressButton", {
+                            attrs: {
+                              episodeId: episode.id,
+                              watchedEpisodes: _vm.watched
+                            }
+                          })
+                        ],
+                        1
+                      )
+                    ])
+                  }),
+                  0
                 )
               ])
-            ]),
-            _vm._v(" "),
-            _c("iframe", {
-              staticClass: "w-full h-screen",
-              attrs: {
-                src: _vm.course.episodes[_vm.currentKey].video_url,
-                frameborder: "0",
-                allow:
-                  "accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture",
-                allowfullscreen: ""
-              }
-            }),
-            _vm._v(" "),
-            _c("div", { staticClass: "text-sm text-gray-500" }, [
-              _vm._v(
-                "\n        " +
-                  _vm._s(_vm.course.episodes[_vm.currentKey].description) +
-                  "\n      "
-              )
-            ]),
-            _vm._v(" "),
-            _c(
-              "div",
-              { staticClass: "py-6" },
-              [
-                _c("progress-bar", {
-                  attrs: {
-                    watchedEpisodes: _vm.watched,
-                    episodes: _vm.course.episodes
-                  }
-                })
-              ],
-              1
-            ),
-            _vm._v(" "),
-            _c(
-              "div",
-              { staticClass: "mtma-10" },
-              _vm._l(_vm.course.episodes, function(episode, index) {
-                return _c("ul", { key: episode.id }, [
-                  _c(
-                    "li",
-                    { staticClass: "mt-2 flex justify-between items-center" },
-                    [
-                      _c("div", [
-                        _vm._v(
-                          "\n              Episode N* " +
-                            _vm._s(index + 1) +
-                            " - " +
-                            _vm._s(episode.title) +
-                            "\n              "
-                        ),
-                        _c(
-                          "button",
-                          {
-                            staticClass: "text-gray-500 focus:text-green-500",
-                            on: {
-                              click: function($event) {
-                                return _vm.switchEpisode(index)
-                              }
-                            }
-                          },
-                          [
-                            _vm._v(
-                              "\n                Voir l'épisode\n              "
-                            )
-                          ]
-                        )
-                      ]),
-                      _vm._v(" "),
-                      _c("ProgressButton", {
-                        attrs: {
-                          episodeId: episode.id,
-                          watchedEpisodes: _vm.watched
-                        }
-                      })
-                    ],
-                    1
-                  )
-                ])
-              }),
-              0
-            )
+            ])
           ])
         ],
         2
@@ -46709,8 +46883,8 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /media/kira/DATA/dev/code/web/laravel/laravel/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /media/kira/DATA/dev/code/web/laravel/laravel/resources/css/app.css */"./resources/css/app.css");
+__webpack_require__(/*! /media/kira/DATA/dev/code/web/laravel/formation/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /media/kira/DATA/dev/code/web/laravel/formation/resources/css/app.css */"./resources/css/app.css");
 
 
 /***/ })

@@ -15,14 +15,14 @@ use Illuminate\Support\Facades\Redirect;
 */
 // Route::get('/', 'App\Http\Controllers\CourseController@index')->name('courses.index');
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
-// Route::middleware(['auth:sanctum', 'verified'])->get('/', function () {
-//     // return Inertia\Inertia::render('Dashboard');
-//     return Redirect::route('courses.index');
+// Route::get('/', function () {
+//     return view('welcome');
 // });
+
+Route::middleware(['auth:sanctum', 'verified'])->get('/', function () {
+    // return Inertia\Inertia::render('Dashboard');
+    return Redirect::route('courses.index');
+});
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return Inertia\Inertia::render('Dashboard');
